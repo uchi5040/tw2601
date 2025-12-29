@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台湾・食の完全攻略プラン 2026</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #d35400;
+            --bg: #fdfbf7;
+            --card-bg: #ffffff;
+            --text: #333;
+            --timeline-line: #cbd5e0;
+        }
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, #c0392b, #8e44ad);
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 { margin: 0; font-size: 1.8rem; letter-spacing: 1px; }
+        p.subtitle { margin-top: 0.5rem; opacity: 0.9; font-weight: 300; }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .day-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-top: 2.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+            letter-spacing: 0.05em;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            margin-top: 1.5rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--timeline-line);
+        }
+
+        .event {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .time {
+            font-weight: 700;
+            color: #fff;
+            background: var(--primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .shop-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--accent);
+            transition: transform 0.2s;
+        }
+        
+        .shop-card.activity {
+            border-left-color: #27ae60;
+        }
+
+        .shop-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 0 0 0.8rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #2c3e50;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .map-btn {
+            text-decoration: none;
+            color: #2980b9;
+            font-size: 0.85rem;
+            border: 1px solid #2980b9;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .map-btn:hover {
+            background: #2980b9;
+            color: white;
+        }
+
+        .tag-container { margin-bottom: 1rem; }
+        .tag {
+            display: inline-block;
+            background: #f1f2f6;
+            color: #57606f;
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-right: 5px;
+            font-weight: 500;
+        }
+
+        /* Menu Styles */
+        .menu-box {
+            background: #fff8f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px dashed #e67e22;
+        }
+        .menu-header {
+            font-weight: bold;
+            color: #d35400;
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #eddcd2;
+            padding-bottom: 5px;
+        }
+        .menu-item {
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        .menu-chinese {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #2c3e50;
+            display: block;
+        }
+        .menu-pinyin {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            margin-left: 5px;
+            font-style: italic;
+        }
+        .menu-desc {
+            font-size: 0.9rem;
+            color: #555;
+            display: block;
+            margin-top: 2px;
+        }
+        .badge-main {
+            background: #e74c3c;
+            color: white;
+            font-size: 0.7rem;
+            padding: 1px 5px;
+            border-radius: 4px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        .badge-sub {
+            background: #95a5a6;
+            color: white;
+            font-size: 0.7rem;
+            padding: 1px 5px;
+            border-radius: 4px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        .comment {
+            font-size: 0.95rem;
+            color: #444;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .transport {
+            background-color: #e8f6f3;
+            padding: 10px 15px;
+            border-radius: 8px;
+            color: #16a085;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #16a085;
+        }
+
+        .tips-section {
+            background: #fff;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #95a5a6;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>台湾・食の完全攻略プラン</h1>
+    <p class="subtitle">2026/1/6(火) - 1/10(土) | 4泊5日</p>
+    <p>指差し注文対応・ローカルグルメ特化版</p>
+</header>
+
+<div class="container">
+
+    <!-- 1日目 -->
+    <div class="day-header" id="day1">
+        1日目：1/6 (火) 到着・鶏・夜市
+    </div>
+    <div class="timeline">
+        <div class="event">
+            <div class="time">14:30</div>
+            <div class="transport">🛫 桃園空港到着 → MRT空港線「台北駅」乗換 → 淡水信義線「雙連駅」へ</div>
+        </div>
+
+        <div class="event">
+            <div class="time">16:00</div>
+            <div class="shop-card activity">
+                <div class="shop-name">
+                    鴨川旅館 (Yachuan Hotel)
+                    <a href="https://www.google.com/maps/search/?api=1&query=Yachuan+Hotel+Taipei" target="_blank" class="map-btn">Google Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">宿泊先</span>
+                    <span class="tag">雙連駅1番出口</span>
+                </div>
+                <div class="comment">
+                    今回の作戦拠点。駅近で市場も夜市も徒歩圏内の最強立地。
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">16:30</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    双連円仔湯
+                    <a href="https://www.google.com/maps/search/?api=1&query=双連円仔湯" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">おやつ</span>
+                    <span class="tag">雙連</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">本命</span>
+                        <span class="menu-chinese">燒麻糬<span class="menu-pinyin">(Shāo má shǔ)</span></span>
+                        <span class="menu-desc">名物の油で揚げ煮した温かいお餅。きな粉と黒ごまが絶品。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">おすすめ</span>
+                        <span class="menu-chinese">紅豆湯<span class="menu-pinyin">(Hóng dòu tāng)</span></span>
+                        <span class="menu-desc">温かいあずきスープ。甘さ控えめでホッとする味。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">おすすめ</span>
+                        <span class="menu-chinese">花生湯<span class="menu-pinyin">(Huā shēng tāng)</span></span>
+                        <span class="menu-desc">とろとろに煮込まれたピーナッツスープ。</span>
+                    </div>
+                </div>
+                <div class="comment">
+                    ホテル徒歩2分。創業70年。日本語メニューもありますが、燒麻糬（お餅）はマストです。
+                </div>
+                <div>🔗 <a href="https://www.sweetriceball.tw/" target="_blank">公式サイト</a></div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">17:30</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    鶏家荘 本店
+                    <a href="https://www.google.com/maps/search/?api=1&query=鶏家荘+本店" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">夕食</span>
+                    <span class="tag">中山</span>
+                    <span class="tag">要予約推奨</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">本命</span>
+                        <span class="menu-chinese">三味雞<span class="menu-pinyin">(Sān wèi jī)</span></span>
+                        <span class="menu-desc">看板メニュー。黒骨鶏、燻製、蒸し鶏の3種盛り合わせ。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-main">本命</span>
+                        <span class="menu-chinese">飯後布丁<span class="menu-pinyin">(Fàn hòu bù dīng)</span></span>
+                        <span class="menu-desc">食後のプリン（サービスで出ることが多いですが、絶品なので確認を）。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">おすすめ</span>
+                        <span class="menu-chinese">雞家豆腐<span class="menu-pinyin">(Jī jiā dòu fǔ)</span></span>
+                        <span class="menu-desc">鶏の形をした蓋で出てくる、鶏エキスたっぷりの麻婆豆腐的な一品。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">おすすめ</span>
+                        <span class="menu-chinese">雞飯<span class="menu-pinyin">(Jī fàn)</span></span>
+                        <span class="menu-desc">鶏の出汁で炊いたご飯。白米よりこちらを。</span>
+                    </div>
+                </div>
+                <div class="comment">
+                    ミシュランビブグルマン。鶏料理の最高峰。サービスの手厚い老舗です。
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">19:30</div>
+            <div class="shop-card activity">
+                <div class="shop-name">
+                    寧夏夜市
+                    <a href="https://www.google.com/maps/search/?api=1&query=寧夏夜市" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">夜市</span>
+                    <span class="tag">散策</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">見つけたら食べるべき：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">行列店</span>
+                        <span class="menu-chinese">蛋黃芋餅<span class="menu-pinyin">(Dàn huáng yù bǐng)</span></span>
+                        <span class="menu-desc">店名：劉芋仔。塩漬け卵黄が入ったタロイモ団子揚げ。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-main">デザート</span>
+                        <span class="menu-chinese">花生豆花<span class="menu-pinyin">(Huā shēng dòu huā)</span></span>
+                        <span class="menu-desc">店名：豆花荘。ピーナッツ豆花。夜市の入口近くに店舗あり。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">挑戦</span>
+                        <span class="menu-chinese">鴨血<span class="menu-pinyin">(Yā xiě)</span></span>
+                        <span class="menu-desc">鴨の血を固めたプリンのようなもの。見た目より癖がなく美味しい。</span>
+                    </div>
+                </div>
+                <div class="comment">
+                    ホテルから徒歩5分。「食べる夜市」として有名。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2日目 -->
+    <div class="day-header" id="day2">
+        2日目：1/7 (水) 早朝2連食・北投イカ・西門
+    </div>
+    <div class="timeline">
+        <div class="event">
+            <div class="time">05:45</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    阜杭豆漿 (1回目)
+                    <a href="https://www.google.com/maps/search/?api=1&query=阜杭豆漿" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">朝食1</span>
+                    <span class="tag">善導寺</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">必食</span>
+                        <span class="menu-chinese">鹹豆漿<span class="menu-pinyin">(Xián dòu jiāng)</span></span>
+                        <span class="menu-desc">塩味のおぼろ豆腐スープ。酢が入って固まっています。ラー油入りがおすすめ。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-main">必食</span>
+                        <span class="menu-chinese">厚餅夾蛋<span class="menu-pinyin">(Hòu bǐng jiā dàn)</span></span>
+                        <span class="menu-desc">窯焼きの厚いパンにネギ入り卵焼きを挟んだもの。ボリューム満点。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">おすすめ</span>
+                        <span class="menu-chinese">蛋餅<span class="menu-pinyin">(Dàn bǐng)</span></span>
+                        <span class="menu-desc">台湾風卵クレープ。モチモチ食感。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">甘党</span>
+                        <span class="menu-chinese">焦糖甜餅<span class="menu-pinyin">(Jiāo táng tián bǐng)</span></span>
+                        <span class="menu-desc">キャラメル餡が入ったサクサクのパイ。デザートに。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">07:00</div>
+            <div class="transport">🚲 YouBike: 善導寺駅(1番出口) → 中山北路を北上 → 雙連駅(2番出口)へ</div>
+        </div>
+
+        <div class="event">
+            <div class="time">07:30</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    香満園 (1回目)
+                    <a href="https://www.google.com/maps/search/?api=1&query=香満園+雙連" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">朝食2</span>
+                    <span class="tag">雙連</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">必食</span>
+                        <span class="menu-chinese">魯肉飯<span class="menu-pinyin">(Lǔ ròu fàn)</span></span>
+                        <span class="menu-desc">脂身が多めのトロトロ系ルーローハン。酸菜が乗っています。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-main">スープ</span>
+                        <span class="menu-chinese">魚丸湯<span class="menu-pinyin">(Yú wán tāng)</span></span>
+                        <span class="menu-desc">あっさりした魚のつみれスープ。こってりご飯に合います。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">追加</span>
+                        <span class="menu-chinese">滷蛋<span class="menu-pinyin">(Lǔ dàn)</span></span>
+                        <span class="menu-desc">煮卵。ご飯に乗せてもらうのが鉄板。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">追加</span>
+                        <span class="menu-chinese">燙青菜<span class="menu-pinyin">(Tàng qīng cài)</span></span>
+                        <span class="menu-desc">茹で青菜。野菜補給に。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">11:00</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    水某小巻米粉
+                    <a href="https://www.google.com/maps/search/?api=1&query=水某小巻米粉+北投" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">昼食</span>
+                    <span class="tag">北投</span>
+                    <span class="tag">売切御免</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">本命</span>
+                        <span class="menu-chinese">小巻米粉<span class="menu-pinyin">(Xiǎo juǎn mǐ fěn)</span></span>
+                        <span class="menu-desc">【汁あり】プリプリのイカが入った太麺ビーフン。スープの甘みが絶品。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-main">本命</span>
+                        <span class="menu-chinese">小巻炒麺<span class="menu-pinyin">(Xiǎo juǎn chǎo miàn)</span></span>
+                        <span class="menu-desc">【汁なし】ニンニクが効いた炒め麺。ビールが欲しくなる味。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">つまみ</span>
+                        <span class="menu-chinese">燙小巻<span class="menu-pinyin">(Tàng xiǎo juǎn)</span></span>
+                        <span class="menu-desc">イカの湯引き。素材の味を楽しみたいなら追加で。</span>
+                    </div>
+                </div>
+                <div class="comment">
+                    開店(11:00)アタック必須。汁ありと汁なしを1つずつ頼んでシェアが正解。
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">13:30</div>
+            <div class="transport">🚲 YouBike: 北門付近 → 河川敷サイクリング → 龍山寺へ</div>
+        </div>
+
+        <div class="event">
+            <div class="time">14:30</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    陳記腸蚵麵線
+                    <a href="https://www.google.com/maps/search/?api=1&query=陳記腸蚵麵線" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">おやつ</span>
+                    <span class="tag">龍山寺</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">必食</span>
+                        <span class="menu-chinese">綜合麵線 (小)<span class="menu-pinyin">(Zōng hé miàn xiàn)</span></span>
+                        <span class="menu-desc">「大腸（ホルモン）」と「蚵仔（牡蠣）」の両方が入ったとろみ素麺。パクチー入り（不要なら「不要香菜」とメモを）。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">17:00</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    天天利美食坊
+                    <a href="https://www.google.com/maps/search/?api=1&query=天天利美食坊" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">夕食1</span>
+                    <span class="tag">西門町</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">必食</span>
+                        <span class="menu-chinese">滷肉飯加煎蛋<span class="menu-pinyin">(Lǔ ròu fàn jiā jiān dàn)</span></span>
+                        <span class="menu-desc">半熟目玉焼き乗せルーローハン。黄身を割って混ぜて食べるのがルール。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">おすすめ</span>
+                        <span class="menu-chinese">蘿蔔糕<span class="menu-pinyin">(Luó bo gāo)</span></span>
+                        <span class="menu-desc">台湾風大根餅。表面カリカリ、中モチモチ。甘辛いタレで。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">おすすめ</span>
+                        <span class="menu-chinese">蚵仔煎<span class="menu-pinyin">(É zǐ jiān)</span></span>
+                        <span class="menu-desc">牡蠣オムレツ。片栗粉を使ったプルプルの生地が特徴。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">18:00</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    梁山泊小籠湯包
+                    <a href="https://www.google.com/maps/search/?api=1&query=梁山泊小籠湯包" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">夕食2</span>
+                    <span class="tag">西門町</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">必食</span>
+                        <span class="menu-chinese">小籠湯包<span class="menu-pinyin">(Xiǎo lóng tāng bāo)</span></span>
+                        <span class="menu-desc">メニューはほぼこれ一本。皮が薄くスープたっぷり。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">スープ</span>
+                        <span class="menu-chinese">酸辣湯<span class="menu-pinyin">(Suān là tāng)</span></span>
+                        <span class="menu-desc">酸っぱ辛いスープ。小籠包との相性抜群。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">飲み物</span>
+                        <span class="menu-chinese">豆漿<span class="menu-pinyin">(Dòu jiāng)</span></span>
+                        <span class="menu-desc">自家製の豆乳。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3日目 -->
+    <div class="day-header" id="day3">
+        3日目：1/8 (木) 路地裏老舗 & 永康街
+    </div>
+    <div class="timeline">
+        <div class="event">
+            <div class="time">07:30</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    69年老店米粉湯
+                    <a href="https://www.google.com/maps/search/?api=1&query=69年老店米粉湯" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">朝食1</span>
+                    <span class="tag">台北駅裏</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">必食</span>
+                        <span class="menu-chinese">米粉湯<span class="menu-pinyin">(Mǐ fěn tāng)</span></span>
+                        <span class="menu-desc">短くて太いビーフンが入ったスープ。優しい豚骨出汁。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">名物</span>
+                        <span class="menu-chinese">黑白切<span class="menu-pinyin">(Hēi bái qiē)</span></span>
+                        <span class="menu-desc">ホルモンなどの小皿料理の総称。以下を指差しで。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">部位</span>
+                        <span class="menu-chinese">嘴邊肉<span class="menu-pinyin">(Zuǐ biān ròu)</span></span>
+                        <span class="menu-desc">豚のほほ肉。柔らかくて一番人気。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">部位</span>
+                        <span class="menu-chinese">油豆腐<span class="menu-pinyin">(Yóu dòu fǔ)</span></span>
+                        <span class="menu-desc">揚げ豆腐。スープを吸って美味しい。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">09:00</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    青島豆漿店
+                    <a href="https://www.google.com/maps/search/?api=1&query=青島豆漿店" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">朝食2</span>
+                    <span class="tag">中正紀念堂</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">必食</span>
+                        <span class="menu-chinese">肉餅<span class="menu-pinyin">(Ròu bǐng)</span></span>
+                        <span class="menu-desc">豚肉餡が入った焼き餅。炉で焼いているので香ばしい。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">おすすめ</span>
+                        <span class="menu-chinese">韭菜盒<span class="menu-pinyin">(Jiǔ cài hé)</span></span>
+                        <span class="menu-desc">ニラ、春雨、卵が入った焼き饅頭。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">飲み物</span>
+                        <span class="menu-chinese">冰豆漿<span class="menu-pinyin">(Bīng dòu jiāng)</span></span>
+                        <span class="menu-desc">冷たい豆乳。焦げたような香ばしい風味が特徴。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">11:30</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    廖家牛肉麺
+                    <a href="https://www.google.com/maps/search/?api=1&query=廖家牛肉麺" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">昼食</span>
+                    <span class="tag">金華街</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">必食</span>
+                        <span class="menu-chinese">牛肉麵<span class="menu-pinyin">(Niú ròu miàn)</span></span>
+                        <span class="menu-desc">ここは「清燉（クリアスープ）」が基本。ニンニクが効いた深い味。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">おすすめ</span>
+                        <span class="menu-chinese">空心菜<span class="menu-pinyin">(Kōng xīn cài)</span></span>
+                        <span class="menu-desc">ここの空芯菜炒めは絶品と評判。牛肉のタレがかかっています。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">おすすめ</span>
+                        <span class="menu-chinese">豆干<span class="menu-pinyin">(Dòu gān)</span></span>
+                        <span class="menu-desc">干し豆腐の細切り。人気の小皿料理。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">12:15</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    黄家香腸
+                    <a href="https://www.google.com/maps/search/?api=1&query=黄家香腸" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">おやつ</span>
+                    <span class="tag">金華街</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">必食</span>
+                        <span class="menu-chinese">香腸<span class="menu-pinyin">(Xiāng cháng)</span></span>
+                        <span class="menu-desc">台湾ソーセージ。店頭に置いてある生ニンニクを自分で剥いて、かじりながら食べるのが流儀。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">15:00</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    富覇王猪脚
+                    <a href="https://www.google.com/maps/search/?api=1&query=富覇王猪脚" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">軽食</span>
+                    <span class="tag">松江南京</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">一番人気</span>
+                        <span class="menu-chinese">霸王腿庫<span class="menu-pinyin">(Bà wáng tuǐ kù)</span></span>
+                        <span class="menu-desc">太ももの肉。肉厚で脂と赤身のバランスが良い。売り切れが一番早い。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">次点</span>
+                        <span class="menu-chinese">霸王腿節<span class="menu-pinyin">(Bà wáng tuǐ jié)</span></span>
+                        <span class="menu-desc">関節部分。皮のトロトロ感とコラーゲンを楽しみたいならこれ。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">サイド</span>
+                        <span class="menu-chinese">潤白豆腐<span class="menu-pinyin">(Rùn bái dòu fǔ)</span></span>
+                        <span class="menu-desc">煮込み豆腐。豚足のタレが染みています。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">サイド</span>
+                        <span class="menu-chinese">魯肉飯<span class="menu-pinyin">(Lǔ ròu fàn)</span></span>
+                        <span class="menu-desc">豚足煮込み汁がかかったご飯。黒光りする見た目が食欲をそそる。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">18:30</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    嘟嘟水餃 (Dodo's Dumpling)
+                    <a href="https://www.google.com/maps/search/?api=1&query=嘟嘟水餃" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">夕食</span>
+                    <span class="tag">雙連</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">必食</span>
+                        <span class="menu-chinese">高麗菜水餃<span class="menu-pinyin">(Gāo lì cài shuǐ jiǎo)</span></span>
+                        <span class="menu-desc">キャベツ水餃子。皮が手作りでモチモチ。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">おすすめ</span>
+                        <span class="menu-chinese">韭菜水餃<span class="menu-pinyin">(Jiǔ cài shuǐ jiǎo)</span></span>
+                        <span class="menu-desc">ニラ水餃子。香りが良くビールに合う。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">スープ</span>
+                        <span class="menu-chinese">酸辣湯<span class="menu-pinyin">(Suān là tāng)</span></span>
+                        <span class="menu-desc">具だくさんのサンラータン。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">つまみ</span>
+                        <span class="menu-chinese">滷味拼盤<span class="menu-pinyin">(Lǔ wèi pīn pán)</span></span>
+                        <span class="menu-desc">煮込み料理の盛り合わせ。小菜コーナーから自分で選ぶことも可能。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4日目 -->
+    <div class="day-header" id="day4">
+        4日目：1/9 (金) 香満園2回目・猫村・板橋爆食
+    </div>
+    <div class="timeline">
+        <div class="event">
+            <div class="time">06:30</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    香満園 (2回目)
+                    <a href="https://www.google.com/maps/search/?api=1&query=香満園+雙連" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">朝食</span>
+                    <span class="tag">雙連</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">2回目のおすすめ：</span>
+                    <div class="menu-item">
+                        <span class="badge-sub">スープ</span>
+                        <span class="menu-chinese">貢丸湯<span class="menu-pinyin">(Gòng wán tāng)</span></span>
+                        <span class="menu-desc">豚肉団子のスープ。弾力がすごい。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">追加</span>
+                        <span class="menu-chinese">油豆腐<span class="menu-pinyin">(Yóu dòu fǔ)</span></span>
+                        <span class="menu-desc">煮込み豆腐。魯肉飯のタレで煮込んであります。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">15:00</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    榕美樹館 (Ron Museum)
+                    <a href="https://www.google.com/maps/search/?api=1&query=榕美樹館" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">休憩</span>
+                    <span class="tag">中山</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">必食</span>
+                        <span class="menu-chinese">招牌豆花<span class="menu-pinyin">(Zhāo pái dòu huā)</span></span>
+                        <span class="menu-desc">お店の看板メニュー。芋圓（芋団子）などがトッピングされた全部入り。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">おすすめ</span>
+                        <span class="menu-chinese">仙草冰<span class="menu-pinyin">(Xiān cǎo bīng)</span></span>
+                        <span class="menu-desc">仙草ゼリーのかき氷。さっぱりしたい時に。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">18:00</div>
+            <div class="shop-card activity">
+                <div class="shop-name">
+                    板橋・裕民街夜市
+                    <a href="https://www.google.com/maps/search/?api=1&query=裕民街夜市" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">夕食</span>
+                    <span class="tag">ローカル</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">攻略店舗リスト：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">56巷口湯包</span>
+                        <span class="menu-chinese">小籠湯包 / 臭豆腐</span>
+                        <span class="menu-desc">ここの臭豆腐は揚げてあるので食べやすいです。小籠包は肉汁注意。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">阿益魯肉飯</span>
+                        <span class="menu-chinese">魯肉飯 / 羊肉羹</span>
+                        <span class="menu-desc">とろみのある羊肉スープ（羊肉羹）が名物。臭みなし。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5日目 -->
+    <div class="day-header" id="day5">
+        5日目：1/10 (土) ラスト行列・帰国
+    </div>
+    <div class="timeline">
+        <div class="event">
+            <div class="time">05:40</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    阜杭豆漿 (2回目)
+                    <a href="https://www.google.com/maps/search/?api=1&query=阜杭豆漿" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">朝食</span>
+                    <span class="tag">善導寺</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">2回目のおすすめ：</span>
+                    <div class="menu-item">
+                        <span class="badge-sub">甘党</span>
+                        <span class="menu-chinese">甜豆漿<span class="menu-pinyin">(Tián dòu jiāng)</span></span>
+                        <span class="menu-desc">甘い豆乳。温かいもの（熱）と冷たいもの（冰）が選べます。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">お土産</span>
+                        <span class="menu-chinese">焦糖甜餅<span class="menu-pinyin">(Jiāo táng tián bǐng)</span></span>
+                        <span class="menu-desc">キャラメル餡のパイ。冷めても美味しいので空港でのおやつにも。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time">10:30</div>
+            <div class="shop-card">
+                <div class="shop-name">
+                    城中市場 老牌牛肉拉麺大王
+                    <a href="https://www.google.com/maps/search/?api=1&query=城中市場+老牌牛肉拉麺大王" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-container">
+                    <span class="tag">ブランチ</span>
+                    <span class="tag">台北駅</span>
+                </div>
+                <div class="menu-box">
+                    <span class="menu-header">指差し注文メニュー：</span>
+                    <div class="menu-item">
+                        <span class="badge-main">必食</span>
+                        <span class="menu-chinese">炸醤麺<span class="menu-pinyin">(Zhà jiàng miàn)</span></span>
+                        <span class="menu-desc">ニンニクがたっぷり効いたジャージャー麺。卓上の酸菜や辣油で味変を。小サイズ（小碗）でも量は多め。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">おすすめ</span>
+                        <span class="menu-chinese">牛肉麵<span class="menu-pinyin">(Niú ròu miàn)</span></span>
+                        <span class="menu-desc">パンチのある濃い味の牛肉麺。</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge-sub">つまみ</span>
+                        <span class="menu-chinese">滷味<span class="menu-pinyin">(Lǔ wèi)</span></span>
+                        <span class="menu-desc">店先の煮込みコーナーで好きな具材を指差してカットしてもらうスタイル。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tips-section">
+        <h3>💡 指差し注文のコツ</h3>
+        <ul>
+            <li><strong>内用 (Nei Yong):</strong> イートインのこと。お店に入ったらまず「ネイヨン」と言えばOK。</li>
+            <li><strong>外帯 (Wai Dai):</strong> テイクアウトのこと。「ワイダイ」。</li>
+            <li><strong>不要香菜 (Bu Yao Xiang Cai):</strong> パクチー抜き。「ブーヤオ シャンツァイ」。</li>
+            <li><strong>小菜 (Xiao Cai):</strong> 小皿料理。棚から自分で取ってきてOKなお店が多いです。</li>
+        </ul>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Taiwan Gourmet Trip Plan
+</footer>
+
+</body>
+</html>

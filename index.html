@@ -3,424 +3,426 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>台湾・食の完全攻略プラン 2026</title>
+    <title>台北・食と生活の完全攻略 2026</title>
     <style>
         :root {
-            --primary: #2c3e50;
-            --accent: #d35400;
-            --bg: #fdfbf7;
+            /* Color Palette */
+            --primary: #2c3e50;    /* 深藍：ベース */
+            --accent: #e74c3c;     /* 赤：重要・グルメ */
+            --life: #27ae60;       /* 緑：生活・癒やし */
+            --bg: #f4f7f6;         /* 背景：淡いグレー */
             --card-bg: #ffffff;
-            --text: #333;
-            --timeline-line: #cbd5e0;
-            /* MRT Colors */
-            --mrt-red: #e74c3c;
-            --mrt-blue: #3498db;
-            --mrt-green: #27ae60;
-            --mrt-orange: #f39c12;
-            --mrt-airport: #8e44ad;
+            --text-main: #2d3436;
+            --text-sub: #636e72;
+            
+            /* Transport Colors */
+            --mrt-red: #e17055;    /* 淡水信義線 */
+            --mrt-green: #00b894;  /* 松山新店線 */
+            --mrt-blue: #0984e3;   /* 板南線 */
+            --mrt-orange: #f39c12; /* 中和新芦線 */
+            --mrt-airport: #a29bfe;/* 空港線 */
+            --taxi: #ffeaa7;       /* タクシー */
+            --bike: #fab1a0;       /* YouBike */
+            --walk: #dfe6e9;       /* 徒歩 */
         }
+
         body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
             line-height: 1.6;
-            color: var(--text);
+            color: var(--text-main);
             background-color: var(--bg);
             margin: 0;
-            padding: 0;
-            padding-bottom: 50px;
+            padding-bottom: 80px;
         }
+
+        /* --- Header --- */
         header {
-            background: linear-gradient(135deg, #c0392b, #8e44ad);
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
             color: white;
-            padding: 2.5rem 1rem;
+            padding: 3rem 1.5rem;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
-        h1 { margin: 0; font-size: 1.8rem; letter-spacing: 1px; }
-        p.subtitle { margin-top: 0.5rem; opacity: 0.9; font-weight: 300; }
-        
+        h1 { margin: 0; font-size: 1.8rem; letter-spacing: 0.05em; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+        p.subtitle { margin-top: 0.5rem; font-weight: 300; font-size: 0.95rem; opacity: 0.9; }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 1rem;
         }
 
+        /* --- Day Navigation (Sticky) --- */
         .day-header {
             background-color: var(--primary);
             color: white;
             padding: 12px 20px;
-            border-radius: 8px;
-            margin-top: 3rem;
+            border-radius: 12px;
+            margin-top: 2.5rem;
             position: sticky;
-            top: 0;
-            z-index: 100;
+            top: 15px;
+            z-index: 999;
             font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-            letter-spacing: 0.05em;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border-bottom: 3px solid rgba(0,0,0,0.1);
         }
 
+        /* --- Timeline --- */
         .timeline {
             position: relative;
             padding-left: 20px;
             margin-top: 1.5rem;
+            border-left: 4px solid #dcdde1;
         }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--timeline-line);
-        }
-
+        
         .event {
             margin-bottom: 2.5rem;
             position: relative;
         }
-
-        .time {
-            font-weight: 700;
-            color: #fff;
+        
+        /* Time Bubble */
+        .event::before {
+            content: '';
+            position: absolute;
+            left: -29px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
             background: var(--primary);
-            padding: 4px 10px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #dcdde1;
         }
 
-        /* Card Styles */
-        .shop-card {
+        .time-display {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* --- Transport Blocks --- */
+        .transport-block {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            background: white;
+            border-left: 5px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .transport-block.red { border-left-color: var(--mrt-red); background: #fff5f5; }
+        .transport-block.green { border-left-color: var(--mrt-green); background: #f0fff4; }
+        .transport-block.blue { border-left-color: var(--mrt-blue); background: #ebf8ff; }
+        .transport-block.orange { border-left-color: var(--mrt-orange); background: #fffaf0; }
+        .transport-block.airport { border-left-color: var(--mrt-airport); background: #f3f0ff; }
+        .transport-block.taxi { border-left-color: #f1c40f; background: var(--taxi); }
+        .transport-block.bike { border-left-color: #e67e22; background: var(--bike); }
+        .transport-block.walk { border-left-color: #95a5a6; background: var(--walk); }
+        
+        .transport-icon { font-size: 1.2rem; }
+
+        /* --- Shop/Spot Cards --- */
+        .card {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-left: 6px solid var(--accent);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--accent);
             transition: transform 0.2s;
         }
-        .shop-card.activity { border-left-color: #27ae60; } /* 観光 */
-        .shop-card.hotel { border-left-color: #8e44ad; } /* ホテル */
+        .card.life { border-top-color: var(--life); background: #ffffff; }
+        .card.hotel { border-top-color: #8e44ad; }
 
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
         .shop-name {
             font-size: 1.3rem;
             font-weight: bold;
-            margin: 0 0 0.8rem 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: #2c3e50;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .map-btn {
-            text-decoration: none;
-            color: #2980b9;
-            font-size: 0.85rem;
-            border: 1px solid #2980b9;
-            padding: 4px 12px;
-            border-radius: 20px;
-            display: inline-flex;
-            align-items: center;
-            background: #fff;
+            line-height: 1.3;
+            color: var(--text-main);
         }
 
-        .tag-container { margin-bottom: 1rem; }
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #fff;
+            background-color: #2980b9;
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(41, 128, 185, 0.3);
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+        .map-btn:hover { background-color: #3498db; }
+
+        .tag-row { margin-bottom: 15px; }
         .tag {
             display: inline-block;
-            background: #f1f2f6;
-            color: #57606f;
             font-size: 0.75rem;
             padding: 3px 8px;
             border-radius: 6px;
             margin-right: 5px;
-            margin-bottom: 4px;
-            font-weight: 500;
-            border: 1px solid #dfe4ea;
-        }
-
-        /* Menu Styles */
-        .menu-box {
-            background: #fff8f0;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border: 1px dashed #e67e22;
-        }
-        .menu-header {
-            font-weight: bold;
-            color: #d35400;
-            font-size: 0.9rem;
-            display: block;
-            margin-bottom: 8px;
-            border-bottom: 1px solid #eddcd2;
-            padding-bottom: 5px;
-        }
-        .menu-item {
-            margin-bottom: 12px;
-            line-height: 1.4;
-            display: flex;
-            align-items: flex-start;
-        }
-        .menu-content { flex: 1; }
-        .menu-chinese {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #2c3e50;
-            display: block;
-        }
-        .menu-pinyin {
-            font-size: 0.75rem;
+            background: #f1f2f6;
             color: #7f8c8d;
-            margin-left: 5px;
-            font-style: italic;
-            font-weight: normal;
+            font-weight: 600;
         }
-        .menu-desc {
-            font-size: 0.85rem;
-            color: #555;
-            display: block;
-            margin-top: 2px;
+        .tag.alert { background: #ff7675; color: white; }
+        .tag.rec { background: #ffeaa7; color: #d35400; }
+
+        /* --- Menu Grid --- */
+        .menu-grid {
+            background: #fffbf0;
+            border: 1px dashed #fdcb6e;
+            border-radius: 10px;
+            padding: 15px;
         }
+        .card.life .menu-grid { background: #f0fdf4; border-color: #86efac; }
+
+        .menu-item {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: flex-start;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 8px;
+        }
+        .menu-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
         .badge {
             font-size: 0.7rem;
             padding: 2px 6px;
             border-radius: 4px;
             color: white;
-            margin-right: 8px;
+            background: #95a5a6;
+            margin-right: 10px;
             white-space: nowrap;
-            margin-top: 3px;
+            margin-top: 4px;
         }
-        .badge.main { background: #e74c3c; }
-        .badge.sub { background: #95a5a6; }
+        .badge.must { background: var(--accent); }
+        .badge.rec { background: #f39c12; }
 
-        .comment {
-            font-size: 0.9rem;
-            color: #444;
-            margin-top: 15px;
-            padding-top: 10px;
-            border-top: 1px solid #eee;
-        }
+        .menu-content { flex: 1; }
+        .menu-name-jp { font-weight: bold; font-size: 0.95rem; color: #2d3436; display: block; }
+        .menu-name-tw { font-size: 1.1rem; color: #2c3e50; font-weight: bold; margin-right: 5px; }
+        .menu-pinyin { font-size: 0.8rem; color: #b2bec3; font-style: italic; }
+        .menu-desc { font-size: 0.85rem; color: #636e72; display: block; margin-top: 2px; }
 
-        /* Transport Styles */
-        .transport {
-            background-color: #fff;
-            padding: 12px 15px;
-            border-radius: 8px;
-            color: #444;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #e0e0e0;
-            border-left-width: 5px;
-            border-left-color: #7f8c8d; /* Default */
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-        .transport-icon { font-size: 1.2rem; }
-        .transport-content { flex: 1; }
-        
-        /* MRT Lines */
-        .mrt-red { border-left-color: var(--mrt-red); }
-        .mrt-blue { border-left-color: var(--mrt-blue); }
-        .mrt-green { border-left-color: var(--mrt-green); }
-        .mrt-orange { border-left-color: var(--mrt-orange); }
-        .mrt-airport { border-left-color: var(--mrt-airport); }
-        
-        .line-tag {
-            display: inline-block;
-            padding: 1px 6px;
-            border-radius: 4px;
-            color: white;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-right: 5px;
-        }
-        .bg-red { background: var(--mrt-red); }
-        .bg-blue { background: var(--mrt-blue); }
-        .bg-green { background: var(--mrt-green); }
-        .bg-orange { background: var(--mrt-orange); }
-        .bg-airport { background: var(--mrt-airport); }
-
-        .tips-section {
-            background: #fff;
+        /* --- Modules --- */
+        .modules-section {
+            margin-top: 4rem;
+            background: white;
             padding: 2rem;
-            margin-top: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 16px;
+            border-top: 8px solid var(--life);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        .tips-section h3 { margin-top: 0; color: var(--primary); }
+        .module-card {
+            background: #f8f9fa;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--life);
+        }
 
         footer {
             text-align: center;
-            padding: 3rem 1rem;
-            color: #95a5a6;
+            padding: 3rem;
+            color: #b2bec3;
             font-size: 0.85rem;
+        }
+        
+        .note {
+            font-size: 0.85rem;
+            background: #dfe6e9;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: #2d3436;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>台湾・食の完全攻略プラン</h1>
+    <h1>台北・食と生活の完全攻略</h1>
     <p class="subtitle">2026/1/6(火) - 1/10(土) | 4泊5日</p>
-    <p>指差し注文・詳細マップリンク付き</p>
+    <p style="font-size:0.8rem; margin-top:10px;">指差し注文対応・移動手段完全ガイド</p>
 </header>
 
 <div class="container">
 
-    <!-- 1日目 -->
-    <div class="day-header" id="day1">
+    <!-- Day 1 -->
+    <div class="day-header">
         <span>Day 1: 1/6 (火)</span>
-        <span style="font-size:0.9rem">到着・鶏・夜市</span>
+        <span style="font-size:0.85rem">到着・鶏・夜市スナイプ</span>
     </div>
+    
     <div class="timeline">
+        <!-- Arrival -->
         <div class="event">
-            <div class="time">14:30</div>
-            <div class="transport mrt-airport">
+            <div class="time-display">14:30</div>
+            <div class="transport-block airport">
                 <span class="transport-icon">🚇</span>
-                <div class="transport-content">
-                    <strong>桃園空港 → 台北駅</strong><br>
-                    <span class="line-tag bg-airport">Airport Line</span>桃園空港線 (Express/快速)
-                </div>
+                <span><strong>空港線(快速)</strong>：桃園空港 → 台北駅 (約35分)</span>
             </div>
-            <div class="transport mrt-red">
+            <div class="transport-block red">
                 <span class="transport-icon">🚇</span>
-                <div class="transport-content">
-                    <strong>台北駅 → 雙連駅</strong><br>
-                    <span class="line-tag bg-red">R</span>淡水信義線 (Red Line) - 淡水/北投方面へ2駅
-                </div>
+                <span><strong>淡水信義線</strong>：台北駅 → 雙連駅 (2駅)</span>
+            </div>
+            <div class="transport-block walk">
+                <span class="transport-icon">🚶</span>
+                <span>雙連駅1番出口 → ホテル (徒歩5分)</span>
             </div>
         </div>
 
+        <!-- Hotel -->
         <div class="event">
-            <div class="time">16:00</div>
-            <div class="shop-card hotel">
-                <div class="shop-name">
-                    鴨川旅館 (Yachuan Hotel)
+            <div class="time-display">17:00</div>
+            <div class="card hotel">
+                <div class="card-header">
+                    <div class="shop-name">鴨川旅館 (Yachuan Hotel)</div>
                     <a href="https://www.google.com/maps/search/?api=1&query=Yachuan+Hotel+Taipei" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
-                    <span class="tag">宿泊先</span>
-                    <span class="tag">雙連駅1番出口徒歩5分</span>
+                <div class="tag-row">
+                    <span class="tag">拠点</span>
+                    <span class="tag">チェックイン</span>
                 </div>
-                <div class="comment">
-                    今回の拠点。市場も夜市も徒歩圏内の最強立地。荷物を置いたらすぐ出発！
-                </div>
+                <div class="menu-desc">入国審査・移動を終えてチェックイン。荷物を置いたらすぐに出発！</div>
             </div>
         </div>
 
+        <!-- Dinner 1 -->
         <div class="event">
-            <div class="time">16:30</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    双連円仔湯 (シュアンリェンユェンズタン)
-                    <a href="https://www.google.com/maps/search/?api=1&query=双連円仔湯" target="_blank" class="map-btn">Map 📍</a>
-                </div>
-                <div class="tag-container">
-                    <span class="tag">おやつ</span>
-                    <span class="tag">雙連</span>
-                </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
-                    <div class="menu-item">
-                        <span class="badge main">本命</span>
-                        <div class="menu-content">
-                            <span class="menu-chinese">燒麻糬<span class="menu-pinyin">(Shāo má shǔ)</span></span>
-                            <span class="menu-desc">名物の油で揚げ煮した温かいお餅。きな粉と黒ごまが絶品。</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="time-display">17:45</div>
+            <div class="transport-block walk">
+                <span class="transport-icon">🚶</span>
+                <span>ホテルから徒歩約10〜15分 (中山北路を渡る)</span>
             </div>
-        </div>
-
-        <div class="event">
-            <div class="time">17:30</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    鶏家荘 本店 (チーチアチュアン)
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">鶏家荘 本店 (Ji Jia Zhuang)</div>
                     <a href="https://www.google.com/maps/search/?api=1&query=鶏家荘+本店" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
-                    <span class="tag">夕食1</span>
-                    <span class="tag">中山エリア</span>
-                    <span class="tag">要予約推奨</span>
+                <div class="tag-row">
+                    <span class="tag rec">夕食1</span>
+                    <span class="tag">予約推奨</span>
                 </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">本命</span>
+                        <span class="badge must">本命</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">三味雞<span class="menu-pinyin">(Sān wèi jī)</span></span>
-                            <span class="menu-desc">看板メニュー。黒骨鶏、燻製、蒸し鶏の3種盛り合わせ。</span>
+                            <span class="menu-name-jp">三味鶏 (鶏の三種盛り)</span>
+                            <span class="menu-name-tw">三味雞</span><span class="menu-pinyin">(Sān wèi jī)</span>
+                            <span class="menu-desc">黒骨鶏、燻製、白蒸しの盛り合わせ。</span>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <span class="badge main">本命</span>
+                        <span class="badge must">必食</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">飯後布丁<span class="menu-pinyin">(Fàn hòu bù dīng)</span></span>
-                            <span class="menu-desc">食後のプリン（サービス）。濃厚で固め。</span>
+                            <span class="menu-name-jp">食後のプリン</span>
+                            <span class="menu-name-tw">飯後布丁</span><span class="menu-pinyin">(Fàn hòu bù dīng)</span>
+                            <span class="menu-desc">サービスで出ます。卵感の強い固めプリン。</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge rec">飯</span>
+                        <div class="menu-content">
+                            <span class="menu-name-jp">鶏飯</span>
+                            <span class="menu-name-tw">雞飯</span><span class="menu-pinyin">(Jī fàn)</span>
+                            <span class="menu-desc">鶏の出汁で炊いたご飯。白米よりこちらを。</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Night Market -->
         <div class="event">
-            <div class="time">19:30</div>
-            <div class="shop-card activity">
-                <div class="shop-name">
-                    寧夏夜市 (ニンシャー・イェシー)
+            <div class="time-display">19:30</div>
+            <div class="transport-block walk">
+                <span class="transport-icon">🚶</span>
+                <span>徒歩移動 (寧夏夜市へ)</span>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">寧夏夜市 (Ningxia Night Market)</div>
                     <a href="https://www.google.com/maps/search/?api=1&query=寧夏夜市" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
-                    <span class="tag">夜市</span>
-                    <span class="tag">雙連徒歩圏内</span>
+                <div class="tag-row">
+                    <span class="tag alert">スナイパーモード</span>
+                    <span class="tag">長居無用</span>
                 </div>
-                <div class="comment">
-                    「食べる夜市」として有名。以下の3店を狙い撃ちします。
-                </div>
-                
-                <div class="menu-box">
-                    <span class="menu-header">① 方家鶏肉飯 (Fang Jia) - 屋台番号060</span>
+                <div class="note">攻略順：微笑炭烤(注文) → 方家(食事) → パパイヤ(購入) → 微笑(受取) → 地瓜球</div>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">必食</span>
+                        <span class="badge rec">中程</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">雞肉飯<span class="menu-pinyin">(Jī ròu fàn)</span></span>
-                            <span class="menu-desc">ミシュランビブグルマン。鶏の脂とタレがご飯に絡んで絶品。</span>
+                            <span class="menu-name-jp">微笑炭烤 (串焼き)</span>
+                            <span class="menu-name-tw">微笑炭烤</span><span class="menu-pinyin">(Wēi xiào tàn kǎo)</span>
+                            <span class="menu-desc">好きな串を選んでカゴへ。番号札をもらい焼き上がりを待つ。</span>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <span class="badge sub">おすすめ</span>
+                        <span class="badge must">No.060</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">魯豆腐<span class="menu-pinyin">(Lǔ dòu fǔ)</span></span>
-                            <span class="menu-desc">プルプルの煮込み豆腐。</span>
+                            <span class="menu-name-jp">方家鶏肉飯 (ファンジア)</span>
+                            <span class="menu-name-tw">雞肉飯 / 滷豆腐</span><span class="menu-pinyin">(Jī ròu fàn / Lǔ dòu fǔ)</span>
+                            <span class="menu-desc">座って食べる。鶏肉飯とプルプルの煮込み豆腐。</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge rec">No.114</span>
+                        <div class="menu-content">
+                            <span class="menu-name-jp">パパイヤミルク</span>
+                            <span class="menu-name-tw">童年木瓜牛奶</span><span class="menu-pinyin">(Mù guā niú nǎi)</span>
+                            <span class="menu-desc">ファミマ前。濃厚で冷たい。</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge rec">民生西路</span>
+                        <div class="menu-content">
+                            <span class="menu-name-jp">香酥地瓜球 (芋ボール)</span>
+                            <span class="menu-name-tw">地瓜球</span><span class="menu-pinyin">(Dì guā qiú)</span>
+                            <span class="menu-desc">民生西路209号。離れた店舗で買うのが混雑回避のコツ。</span>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="menu-box">
-                    <span class="menu-header">② 香酥地瓜球 (Sweet Potato Balls) - 移転先に注意</span>
-                    <div class="menu-item">
-                        <span class="badge main">おやつ</span>
-                        <div class="menu-content">
-                            <span class="menu-chinese">地瓜球<span class="menu-pinyin">(Dì guā qiú)</span></span>
-                            <span class="menu-desc"><strong>住所：民生西路209号</strong>（夜市のメイン通りから少し西へ）。揚げたてサクサクモチモチのサツマイモボール。</span>
-                        </div>
-                    </div>
+        <!-- Dessert -->
+        <div class="event">
+            <div class="time-display">20:30</div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">豆花荘 (Dou Hua Zhuang)</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=豆花荘" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-
-                <div class="menu-box">
-                    <span class="menu-header">③ 豆花荘 (Dou Hua Zhuang) - 夜市入口向かい</span>
+                <div class="tag-row">
+                    <span class="tag rec">デザート</span>
+                    <span class="tag">夜市向かい</span>
+                </div>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">デザート</span>
+                        <span class="badge must">必食</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">花生豆花 + 芋頭<span class="menu-pinyin">(Huā shēng dòu huā + Yù tou)</span></span>
-                            <span class="menu-desc">ピーナッツ豆花にタロイモ（芋頭）をトッピングするのが最高。</span>
+                            <span class="menu-name-jp">ピーナッツ豆花＋タロイモ</span>
+                            <span class="menu-name-tw">花生豆花 加 芋頭</span><span class="menu-pinyin">(Huā shēng dòu huā jiā Yù tou)</span>
+                            <span class="menu-desc">ねっとりしたタロイモトッピングが最高。</span>
                         </div>
                     </div>
                 </div>
@@ -428,48 +430,44 @@
         </div>
     </div>
 
-    <!-- 2日目 -->
-    <div class="day-header" id="day2">
+    <!-- Day 2 -->
+    <div class="day-header">
         <span>Day 2: 1/7 (水)</span>
-        <span style="font-size:0.9rem">早朝2連食・北投イカ・西門</span>
+        <span style="font-size:0.85rem">萬華・黒ルーローハン・榕美樹館</span>
     </div>
-    <div class="timeline">
-        <div class="event">
-            <div class="time">05:30</div>
-            <div class="transport">
-                <span class="transport-icon">🚕</span>
-                <div class="transport-content">
-                    <strong>ホテル → 阜杭豆漿</strong><br>
-                    早朝のためタクシー推奨（約10分）。「善導寺駅（Shàn dǎo sì）」と伝えればOK。
-                </div>
-            </div>
-        </div>
 
+    <div class="timeline">
+        <!-- Morning -->
         <div class="event">
-            <div class="time">05:45</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    阜杭豆漿 (1回目)
+            <div class="time-display">05:30</div>
+            <div class="transport-block taxi">
+                <span class="transport-icon">🚕</span>
+                <span>ホテル → 阜杭豆漿 (約10〜15分) 「善導寺駅」へ</span>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">阜杭豆漿 (1回目)</div>
                     <a href="https://www.google.com/maps/search/?api=1&query=阜杭豆漿" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
+                <div class="tag-row">
+                    <span class="tag alert">行列</span>
                     <span class="tag">朝食1</span>
-                    <span class="tag">善導寺駅</span>
                 </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">必食</span>
+                        <span class="badge must">必食</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">鹹豆漿<span class="menu-pinyin">(Xián dòu jiāng)</span></span>
-                            <span class="menu-desc">塩味のおぼろ豆腐スープ。</span>
+                            <span class="menu-name-jp">鹹豆漿 (シェンドウジャン)</span>
+                            <span class="menu-name-tw">鹹豆漿</span><span class="menu-pinyin">(Xián dòu jiāng)</span>
+                            <span class="menu-desc">塩味のおぼろ豆腐スープ。酢とラー油が効いています。</span>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <span class="badge main">必食</span>
+                        <span class="badge must">必食</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">厚餅夾蛋<span class="menu-pinyin">(Hòu bǐng jiā dàn)</span></span>
-                            <span class="menu-desc">窯焼きの厚いパンに卵焼きサンド。</span>
+                            <span class="menu-name-jp">厚焼きパン＋卵焼き</span>
+                            <span class="menu-name-tw">厚餅夾蛋</span><span class="menu-pinyin">(Hòu bǐng jiā dàn)</span>
+                            <span class="menu-desc">窯焼きパンの香ばしさが格別。</span>
                         </div>
                     </div>
                 </div>
@@ -477,110 +475,79 @@
         </div>
 
         <div class="event">
-            <div class="time">07:00</div>
-            <div class="transport">
+            <div class="time-display">07:30</div>
+            <div class="transport-block bike">
                 <span class="transport-icon">🚲</span>
-                <div class="transport-content">
-                    <strong>YouBike移動</strong><br>
-                    善導寺駅(1番出口) → 中山北路を北上 → 雙連駅(2番出口)へ
-                </div>
+                <span>YouBike: 善導寺駅 → 雙連駅 (中山北路を北上)</span>
             </div>
-        </div>
-
-        <div class="event">
-            <div class="time">07:30</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    香満園 (1回目)
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">香満園 (1回目)</div>
                     <a href="https://www.google.com/maps/search/?api=1&query=香満園+雙連" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
-                    <span class="tag">朝食2</span>
-                    <span class="tag">雙連駅裏</span>
+                <div class="tag-row">
+                    <span class="tag rec">朝食2</span>
+                    <span class="tag">ホテル裏</span>
                 </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">必食</span>
+                        <span class="badge must">必食</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">魯肉飯<span class="menu-pinyin">(Lǔ ròu fàn)</span></span>
-                            <span class="menu-desc">脂身多めのトロトロ系。酸菜付き。</span>
+                            <span class="menu-name-jp">魯肉飯 (ルーローハン)</span>
+                            <span class="menu-name-tw">魯肉飯</span><span class="menu-pinyin">(Lǔ ròu fàn)</span>
+                            <span class="menu-desc">脂身多めのトロトロ系。酸菜がアクセント。</span>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <span class="badge sub">スープ</span>
+                        <span class="badge rec">汁</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">魚丸湯<span class="menu-pinyin">(Yú wán tāng)</span></span>
-                            <span class="menu-desc">あっさりつみれスープ。</span>
+                            <span class="menu-name-jp">魚のつみれスープ</span>
+                            <span class="menu-name-tw">魚丸湯</span><span class="menu-pinyin">(Yú wán tāng)</span>
+                            <span class="menu-desc">あっさり味で朝にぴったり。</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Beitou -->
         <div class="event">
-            <div class="time">09:30</div>
-            <div class="transport mrt-red">
+            <div class="time-display">10:00</div>
+            <div class="transport-block red">
                 <span class="transport-icon">🚇</span>
-                <div class="transport-content">
-                    <strong>雙連駅 → 北投駅</strong><br>
-                    <span class="line-tag bg-red">R</span>淡水信義線 (淡水行き) - 約20分
-                </div>
+                <span><strong>淡水信義線</strong>：雙連駅 → 北投駅 (約20分)</span>
             </div>
-        </div>
-
-        <div class="event">
-            <div class="time">10:00</div>
-            <div class="shop-card activity">
-                <div class="shop-name">
-                    北投市場 (Beitou Market)
-                    <a href="https://www.google.com/maps/search/?api=1&query=北投市場" target="_blank" class="map-btn">Map 📍</a>
-                </div>
-                <div class="tag-container">
-                    <span class="tag">散策</span>
-                    <span class="tag">北投</span>
-                </div>
-                <div class="comment">
-                    台北最大級の公設市場。活気がすごい。
-                </div>
-                <div class="menu-box">
-                    <span class="menu-header">立ち寄りスポット：高記茶荘</span>
-                    <div class="menu-item">
-                        <span class="badge sub">飲料</span>
-                        <div class="menu-content">
-                            <span class="menu-chinese">無憂茶<span class="menu-pinyin">(Wú yōu chá)</span></span>
-                            <span class="menu-desc">ウーロン茶と緑茶のブレンド。袋入りで提供されます。</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="event">
-            <div class="time">11:00</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    水某小巻米粉
+            <div class="card life">
+                <div class="card-header">
+                    <div class="shop-name">北投市場 ＆ 水某小巻米粉</div>
                     <a href="https://www.google.com/maps/search/?api=1&query=水某小巻米粉+北投" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
-                    <span class="tag">昼食</span>
-                    <span class="tag">北投</span>
-                    <span class="tag">13:30閉店</span>
+                <div class="tag-row">
+                    <span class="tag">生活市場</span>
+                    <span class="tag alert">13:30閉店</span>
                 </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">本命</span>
+                        <span class="badge rec">茶</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">小巻米粉 (汁あり)<span class="menu-pinyin">(Xiǎo juǎn mǐ fěn)</span></span>
-                            <span class="menu-desc">新鮮なイカと極太ビーフン。スープが甘くて美味。</span>
+                            <span class="menu-name-jp">高記茶荘：無憂茶</span>
+                            <span class="menu-name-tw">無憂茶</span><span class="menu-pinyin">(Wú yōu chá)</span>
+                            <span class="menu-desc">市場内の名店。ウーロン緑茶。袋入りで提供されます。</span>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <span class="badge main">本命</span>
+                        <span class="badge must">本命</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">小巻炒麺 (汁なし)<span class="menu-pinyin">(Xiǎo juǎn chǎo miàn)</span></span>
+                            <span class="menu-name-jp">イカビーフン (汁あり)</span>
+                            <span class="menu-name-tw">小巻米粉</span><span class="menu-pinyin">(Xiǎo juǎn mǐ fěn)</span>
+                            <span class="menu-desc">新鮮なイカと極太ビーフン。スープの甘みが凄い。</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge rec">シェア</span>
+                        <div class="menu-content">
+                            <span class="menu-name-jp">イカ炒め麺 (汁なし)</span>
+                            <span class="menu-name-tw">小巻炒麺</span><span class="menu-pinyin">(Xiǎo juǎn chǎo miàn)</span>
                             <span class="menu-desc">ニンニクが効いた炒め麺。</span>
                         </div>
                     </div>
@@ -588,122 +555,142 @@
             </div>
         </div>
 
+        <!-- Wanhua -->
         <div class="event">
-            <div class="time">12:30</div>
-            <div class="transport mrt-red">
+            <div class="time-display">13:30</div>
+            <div class="transport-block red">
                 <span class="transport-icon">🚇</span>
-                <div class="transport-content">
-                    <strong>北投駅 → 台北駅</strong><br>
-                    <span class="line-tag bg-red">R</span>淡水信義線 (象山/大安行き)
-                </div>
+                <span>北投駅 → 台北駅</span>
             </div>
-            <div class="transport mrt-blue">
+            <div class="transport-block blue">
                 <span class="transport-icon">🚇</span>
-                <div class="transport-content">
-                    <strong>台北駅 → 龍山寺駅</strong><br>
-                    <span class="line-tag bg-blue">BL</span>板南線 (Blue Line) - 頂埔/亜東病院行きへ乗換
-                </div>
+                <span><strong>板南線</strong>：台北駅 → 龍山寺駅</span>
             </div>
-        </div>
-
-        <div class="event">
-            <div class="time">13:30</div>
-            <div class="shop-card activity">
-                <div class="shop-name">
-                    龍山寺エリア・剥皮寮
+            <div class="card life">
+                <div class="card-header">
+                    <div class="shop-name">龍山寺・剥皮寮歴史街区</div>
                     <a href="https://www.google.com/maps/search/?api=1&query=龍山寺" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
+                <div class="tag-row">
                     <span class="tag">観光</span>
-                    <span class="tag">萬華</span>
+                    <span class="tag">歴史散策</span>
                 </div>
-                <div class="comment">
-                    <ul>
-                        <li><strong>龍山寺:</strong> 台北最古の寺院。おみくじに挑戦。</li>
-                        <li><strong>剥皮寮歴史街区:</strong> 清朝時代の街並みが残るレンガ造りのエリア。フォトジェニック。</li>
-                        <li><strong>YouBike:</strong> 龍山寺周辺から河川敷へサイクリングも可能。</li>
-                    </ul>
+                <div class="menu-desc">
+                    最強のパワースポット龍山寺で参拝。その後、隣の「剥皮寮（ボーピーリャオ）」へ。レンガ造りの街並みは写真撮影に最適。
                 </div>
             </div>
         </div>
 
+        <!-- Snack -->
         <div class="event">
-            <div class="time">14:30</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    陳記腸蚵麵線
-                    <a href="https://www.google.com/maps/search/?api=1&query=陳記腸蚵麵線" target="_blank" class="map-btn">Map 📍</a>
+            <div class="time-display">14:30</div>
+            <div class="transport-block walk">
+                <span class="transport-icon">🚶</span>
+                <span>華西街夜市方面へ徒歩移動</span>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">小王煮瓜 (Xiao Wang Zhu Gua)</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=小王煮瓜" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
+                <div class="tag-row">
+                    <span class="tag rec">ミシュラン</span>
                     <span class="tag">おやつ</span>
-                    <span class="tag">龍山寺徒歩3分</span>
                 </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">必食</span>
+                        <span class="badge must">必食</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">綜合麵線 (小)<span class="menu-pinyin">(Zōng hé miàn xiàn)</span></span>
-                            <span class="menu-desc">ホルモンと牡蠣入り。煮込まれた大腸の味が衝撃的。</span>
+                            <span class="menu-name-jp">黒金魯肉飯 (黒ルーローハン)</span>
+                            <span class="menu-name-tw">黑金魯肉飯</span><span class="menu-pinyin">(Hēi jīn lǔ ròu fàn)</span>
+                            <span class="menu-desc">見た目は真っ黒ですが味は意外と優しい。</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Gap Time -->
         <div class="event">
-            <div class="time">17:00</div>
-            <div class="transport">
+            <div class="time-display">15:30</div>
+            <div class="transport-block walk">
+                <span class="transport-icon">🚶</span>
+                <span>徒歩移動</span>
+            </div>
+            <div class="card life">
+                <div class="card-header">
+                    <div class="shop-name">カルフール桂林店 (Carrefour)</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=家樂福桂林店" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-row">
+                    <span class="tag">24Hスーパー</span>
+                    <span class="tag">隙間時間</span>
+                </div>
+                <div class="menu-desc">
+                    小王煮瓜から徒歩圏内。現地の生活感を感じつつ、調味料やお菓子のお土産探しに最適。
+                </div>
+            </div>
+        </div>
+
+        <!-- Dinner -->
+        <div class="event">
+            <div class="time-display">17:30</div>
+            <div class="transport-block taxi">
                 <span class="transport-icon">🚕</span>
-                <div class="transport-content">
-                    <strong>龍山寺 → 西門町</strong><br>
-                    タクシーでワンメーター程度。またはMRTで1駅。
-                </div>
+                <span>西門町へ (ワンメーター)</span>
             </div>
-        </div>
-
-        <div class="event">
-            <div class="time">17:30</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    天天利美食坊
-                    <a href="https://www.google.com/maps/search/?api=1&query=天天利美食坊" target="_blank" class="map-btn">Map 📍</a>
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">西門町 2連戦 (Tian Tian Li & Liang Shan Po)</div>
                 </div>
-                <div class="tag-container">
-                    <span class="tag">夕食1</span>
-                    <span class="tag">西門町</span>
+                <div class="tag-row">
+                    <span class="tag rec">夕食</span>
+                    <span class="tag">ハシゴ</span>
                 </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">必食</span>
+                        <span class="badge must">天天利</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">滷肉飯加煎蛋<span class="menu-pinyin">(Lǔ ròu fàn jiā jiān dàn)</span></span>
-                            <span class="menu-desc">半熟卵乗せルーローハン。</span>
+                            <span class="menu-name-jp">半熟卵乗せ魯肉飯</span>
+                            <span class="menu-name-tw">滷肉飯加煎蛋</span><span class="menu-pinyin">(Lǔ ròu fàn jiā jiān dàn)</span>
+                            <span class="menu-desc">黄身を崩して混ぜて食べるのが鉄則。</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge must">梁山泊</span>
+                        <div class="menu-content">
+                            <span class="menu-name-jp">小籠湯包</span>
+                            <span class="menu-name-tw">小籠湯包</span><span class="menu-pinyin">(Xiǎo lóng tāng bāo)</span>
+                            <span class="menu-desc">木曜定休なので今日行くのが正解。皮薄スープ多め。</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Dessert -->
         <div class="event">
-            <div class="time">18:00</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    梁山泊小籠湯包
-                    <a href="https://www.google.com/maps/search/?api=1&query=梁山泊小籠湯包" target="_blank" class="map-btn">Map 📍</a>
+            <div class="time-display">20:00</div>
+            <div class="transport-block green">
+                <span class="transport-icon">🚇</span>
+                <span><strong>松山新店線</strong>：西門駅 → 中山駅 (1駅)</span>
+            </div>
+            <div class="card life">
+                <div class="card-header">
+                    <div class="shop-name">榕美樹館 (Ron Museum)</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=榕美樹館" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
-                    <span class="tag">夕食2</span>
-                    <span class="tag">西門町</span>
+                <div class="tag-row">
+                    <span class="tag rec">デザート</span>
+                    <span class="tag">おしゃれ豆花</span>
                 </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">必食</span>
+                        <span class="badge must">本命</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">小籠湯包<span class="menu-pinyin">(Xiǎo lóng tāng bāo)</span></span>
-                            <span class="menu-desc">メニューはほぼこれのみ。皮薄めスープ多め。</span>
+                            <span class="menu-name-jp">招牌豆花 (全部入り)</span>
+                            <span class="menu-name-tw">招牌豆花</span><span class="menu-pinyin">(Zhāo pái dòu huā)</span>
+                            <span class="menu-desc">芋団子、仙草ゼリーなどが載った看板メニュー。空間も素敵。</span>
                         </div>
                     </div>
                 </div>
@@ -711,44 +698,43 @@
         </div>
     </div>
 
-    <!-- 3日目 -->
-    <div class="day-header" id="day3">
+    <!-- Day 3 -->
+    <div class="day-header">
         <span>Day 3: 1/8 (木)</span>
-        <span style="font-size:0.9rem">老舗の朝・金峰・永康街</span>
+        <span style="font-size:0.85rem">雑貨・ガチョウ・双連円仔湯</span>
     </div>
+
     <div class="timeline">
         <div class="event">
-            <div class="time">07:30</div>
-            <div class="transport">
+            <div class="time-display">07:30</div>
+            <div class="transport-block bike">
                 <span class="transport-icon">🚲</span>
-                <div class="transport-content">
-                    <strong>YouBike移動</strong><br>
-                    雙連駅周辺 → 台北駅裏（華陰街）へ（約10分）
-                </div>
+                <span>YouBike: 雙連駅 → 台北駅裏 (華陰街)</span>
             </div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    69年老店米粉湯
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">69年老店米粉湯</div>
                     <a href="https://www.google.com/maps/search/?api=1&query=69年老店米粉湯" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
+                <div class="tag-row">
                     <span class="tag">朝食1</span>
-                    <span class="tag">台北駅裏</span>
+                    <span class="tag">ディープ</span>
                 </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">必食</span>
+                        <span class="badge must">必食</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">米粉湯<span class="menu-pinyin">(Mǐ fěn tāng)</span></span>
-                            <span class="menu-desc">太いビーフンスープ。</span>
+                            <span class="menu-name-jp">米粉湯 (ビーフンスープ)</span>
+                            <span class="menu-name-tw">米粉湯</span><span class="menu-pinyin">(Mǐ fěn tāng)</span>
+                            <span class="menu-desc">短くて太いビーフン。優しい豚骨スープ。</span>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <span class="badge sub">名物</span>
+                        <span class="badge rec">副菜</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">黑白切<span class="menu-pinyin">(Hēi bái qiē)</span></span>
-                            <span class="menu-desc">ホルモン盛り合わせ（指差しでOK）。</span>
+                            <span class="menu-name-jp">黒白切 (ホルモン盛り合わせ)</span>
+                            <span class="menu-name-tw">黑白切</span><span class="menu-pinyin">(Hēi bái qiē)</span>
+                            <span class="menu-desc">指差しでOK。「嘴辺肉（ほほ肉）」がおすすめ。</span>
                         </div>
                     </div>
                 </div>
@@ -756,23 +742,27 @@
         </div>
 
         <div class="event">
-            <div class="time">09:00</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    青島豆漿店
-                    <a href="https://www.google.com/maps/search/?api=1&query=青島豆漿店" target="_blank" class="map-btn">Map 📍</a>
+            <div class="time-display">09:00</div>
+            <div class="transport-block bike">
+                <span class="transport-icon">🚲</span>
+                <span>YouBike: 台北駅裏 → 中正紀念堂周辺</span>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">鼎元豆漿 (Ding Yuan Dou Jiang)</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=鼎元豆漿" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
+                <div class="tag-row">
                     <span class="tag">朝食2</span>
-                    <span class="tag">中正紀念堂</span>
+                    <span class="tag">変更済</span>
                 </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">必食</span>
+                        <span class="badge must">必食</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">肉餅<span class="menu-pinyin">(Ròu bǐng)</span></span>
-                            <span class="menu-desc">炉で焼いた肉入り焼き餅。</span>
+                            <span class="menu-name-jp">小籠湯包</span>
+                            <span class="menu-name-tw">小籠湯包</span><span class="menu-pinyin">(Xiǎo lóng tāng bāo)</span>
+                            <span class="menu-desc">朝から蒸したてが食べられます。</span>
                         </div>
                     </div>
                 </div>
@@ -780,56 +770,35 @@
         </div>
 
         <div class="event">
-            <div class="time">10:00</div>
-            <div class="shop-card activity">
-                <div class="shop-name">
-                    中正紀念堂 ＆ 東門市場
-                    <a href="https://www.google.com/maps/search/?api=1&query=中正紀念堂" target="_blank" class="map-btn">Map 📍</a>
-                </div>
-                <div class="tag-container">
-                    <span class="tag">観光</span>
-                </div>
-                <div class="comment">
-                    <ul>
-                        <li><strong>中正紀念堂:</strong> 毎時00分の衛兵交代式は見もの。</li>
-                        <li><strong>東門市場:</strong> 観光客向けではない、本当のローカル市場を探検。</li>
-                    </ul>
-                </div>
+            <div class="time-display">11:30</div>
+            <div class="transport-block walk">
+                <span class="transport-icon">🚶</span>
+                <span>徒歩移動 (中正紀念堂駅2番出口横)</span>
             </div>
-        </div>
-
-        <div class="event">
-            <div class="time">11:30</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    金峰魯肉飯 (ジンフォン)
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">金峰魯肉飯 (Jin Feng)</div>
                     <a href="https://www.google.com/maps/search/?api=1&query=金峰魯肉飯" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
+                <div class="tag-row">
                     <span class="tag">昼食</span>
-                    <span class="tag">中正紀念堂駅2番出口</span>
+                    <span class="tag">回転速い</span>
                 </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">必食</span>
+                        <span class="badge must">必食</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">魯肉飯<span class="menu-pinyin">(Lǔ ròu fàn)</span></span>
-                            <span class="menu-desc">シイタケの出汁が効いた細切り肉タイプ。</span>
+                            <span class="menu-name-jp">魯肉飯 (中)</span>
+                            <span class="menu-name-tw">魯肉飯 (中)</span><span class="menu-pinyin">(Lǔ ròu fàn)</span>
+                            <span class="menu-desc">シイタケとスパイスが香る細切り肉タイプ。</span>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <span class="badge sub">スープ</span>
+                        <span class="badge rec">汁</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">肉焿湯<span class="menu-pinyin">(Ròu gēng tāng)</span></span>
-                            <span class="menu-desc">とろみのある肉団子スープ。</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <span class="badge sub">サイド</span>
-                        <div class="menu-content">
-                            <span class="menu-chinese">油豆腐<span class="menu-pinyin">(Yóu dòu fǔ)</span></span>
-                            <span class="menu-desc">味の染みた揚げ豆腐。</span>
+                            <span class="menu-name-jp">肉だんごとろみスープ</span>
+                            <span class="menu-name-tw">肉焿湯</span><span class="menu-pinyin">(Ròu gēng tāng)</span>
+                            <span class="menu-desc">魯肉飯との相性抜群。</span>
                         </div>
                     </div>
                 </div>
@@ -837,26 +806,73 @@
         </div>
 
         <div class="event">
-            <div class="time">12:30</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    黄家香腸
-                    <a href="https://www.google.com/maps/search/?api=1&query=黄家香腸" target="_blank" class="map-btn">Map 📍</a>
+            <div class="time-display">12:30</div>
+            <div class="transport-block taxi">
+                <span class="transport-icon">🚕</span>
+                <span>Uber/タクシーで永康街へ</span>
+            </div>
+            <div class="card life">
+                <div class="card-header">
+                    <div class="shop-name">永康街 雑貨巡り</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=來好+永康街" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
-                    <span class="tag">おやつ</span>
-                    <span class="tag">金華街</span>
+                <div class="tag-row">
+                    <span class="tag">買い物</span>
+                    <span class="tag">お土産</span>
                 </div>
-                <div class="comment">
-                    金峰魯肉飯から永康街へ向かう途中にあります。
-                </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
+                <div class="note">すべて「永康街6巷」という同じ路地にあります。</div>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">必食</span>
+                        <span class="badge shop">來好</span>
+                        <div class="menu-content"><span class="menu-name-jp">LAI HAO (台湾雑貨セレクト)</span></div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge shop">Bao</span>
+                        <div class="menu-content"><span class="menu-name-jp">Bao maison (オリジナル雑貨)</span></div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge shop">HOLI</span>
+                        <div class="menu-content"><span class="menu-name-jp">厚里 HOLI (刺繍・ハンドメイド)</span></div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge rec">OP</span>
+                        <div class="menu-content"><span class="menu-name-jp">※黄家香腸 (ソーセージ) はお腹と相談で</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time-display">15:30</div>
+            <div class="transport-block taxi">
+                <span class="transport-icon">🚕</span>
+                <span>Uber/タクシーで吉林路へ (阿城鵝肉)</span>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">阿城鵝肉 吉林店 (A Cheng Goose)</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=阿城鵝肉+吉林" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-row">
+                    <span class="tag rec">遅めの昼食</span>
+                    <span class="tag">アイドルタイム狙い</span>
+                </div>
+                <div class="note">14:30〜16:30の空いている時間を狙う作戦。準備中でも少し待てば入れます。</div>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <span class="badge must">本命</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">香腸<span class="menu-pinyin">(Xiāng cháng)</span></span>
-                            <span class="menu-desc">炭火焼きソーセージ。生ニンニクと一緒に。</span>
+                            <span class="menu-name-jp">ガチョウ肉 (スモーク/小)</span>
+                            <span class="menu-name-tw">煙燻鵝肉</span><span class="menu-pinyin">(Yān xūn é ròu)</span>
+                            <span class="menu-desc">脂が甘くてジューシー。絶対スモーク(煙燻)がおすすめ。</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge must">飯</span>
+                        <div class="menu-content">
+                            <span class="menu-name-jp">ガチョウ油かけご飯</span>
+                            <span class="menu-name-tw">鵝油拌飯</span><span class="menu-pinyin">(É yóu bàn fàn)</span>
+                            <span class="menu-desc">これだけで何杯でもいける味。</span>
                         </div>
                     </div>
                 </div>
@@ -864,61 +880,63 @@
         </div>
 
         <div class="event">
-            <div class="time">15:00</div>
-            <div class="transport mrt-orange">
+            <div class="time-display">18:30</div>
+            <div class="transport-block orange">
                 <span class="transport-icon">🚇</span>
-                <div class="transport-content">
-                    <strong>東門駅 → 松江南京駅</strong><br>
-                    <span class="line-tag bg-orange">O</span>中和新芦線 (Orange Line) - 1駅
-                </div>
+                <span><strong>中和新芦線</strong>：行天宮駅 → 雙連駅 (民権西路乗換)</span>
             </div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    富覇王猪脚
-                    <a href="https://www.google.com/maps/search/?api=1&query=富覇王猪脚" target="_blank" class="map-btn">Map 📍</a>
-                </div>
-                <div class="tag-container">
-                    <span class="tag">軽食/テイクアウト</span>
-                    <span class="tag">松江南京</span>
-                </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
-                    <div class="menu-item">
-                        <span class="badge main">一番人気</span>
-                        <div class="menu-content">
-                            <span class="menu-chinese">霸王腿庫<span class="menu-pinyin">(Bà wáng tuǐ kù)</span></span>
-                            <span class="menu-desc">太もも肉。売り切れ注意。</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="event">
-            <div class="time">18:30</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    嘟嘟水餃
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">嘟嘟水餃 (Dodo's Dumpling)</div>
                     <a href="https://www.google.com/maps/search/?api=1&query=嘟嘟水餃" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
+                <div class="tag-row">
                     <span class="tag">夕食</span>
-                    <span class="tag">雙連</span>
+                    <span class="tag">ホテル近く</span>
                 </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">必食</span>
+                        <span class="badge must">必食</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">高麗菜水餃<span class="menu-pinyin">(Gāo lì cài shuǐ jiǎo)</span></span>
-                            <span class="menu-desc">キャベツ水餃子。</span>
+                            <span class="menu-name-jp">キャベツ水餃子</span>
+                            <span class="menu-name-tw">高麗菜水餃</span><span class="menu-pinyin">(Gāo lì cài shuǐ jiǎo)</span>
+                            <span class="menu-desc">皮がモチモチの手作り水餃子。</span>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <span class="badge sub">スープ</span>
+                        <span class="badge rec">汁</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">酸辣湯<span class="menu-pinyin">(Suān là tāng)</span></span>
-                            <span class="menu-desc">具だくさんサンラータン。</span>
+                            <span class="menu-name-jp">酸辣湯 (サンラータン)</span>
+                            <span class="menu-name-tw">酸辣湯</span><span class="menu-pinyin">(Suān là tāng)</span>
+                            <span class="menu-desc">具だくさんスープ。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time-display">19:30</div>
+            <div class="transport-block walk">
+                <span class="transport-icon">🚶</span>
+                <span>徒歩すぐ</span>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">双連円仔湯 (Shuang Lian Yuan Zai Tang)</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=双連円仔湯" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-row">
+                    <span class="tag rec">デザート</span>
+                    <span class="tag">回収</span>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <span class="badge must">本命</span>
+                        <div class="menu-content">
+                            <span class="menu-name-jp">焼き餅 (2個入り)</span>
+                            <span class="menu-name-tw">燒麻糬</span><span class="menu-pinyin">(Shāo má shǔ)</span>
+                            <span class="menu-desc">初日に飛ばした名物をここで回収。温かいお餅で〆。</span>
                         </div>
                     </div>
                 </div>
@@ -926,169 +944,192 @@
         </div>
     </div>
 
-    <!-- 4日目 -->
-    <div class="day-header" id="day4">
+    <!-- Day 4 -->
+    <div class="day-header">
         <span>Day 4: 1/9 (金)</span>
-        <span style="font-size:0.9rem">猫村・板橋爆食</span>
+        <span style="font-size:0.85rem">猫村・迪化街・延三夜市</span>
     </div>
+
     <div class="timeline">
         <div class="event">
-            <div class="time">06:30</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    香満園 (2回目)
-                    <a href="https://www.google.com/maps/search/?api=1&query=香満園+雙連" target="_blank" class="map-btn">Map 📍</a>
+            <div class="time-display">06:30</div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">香満園 (2回目)</div>
                 </div>
-                <div class="tag-container">
+                <div class="tag-row">
                     <span class="tag">朝食</span>
-                    <span class="tag">雙連</span>
+                    <span class="tag">ラスト</span>
                 </div>
-                <div class="comment">
-                    土日休みなのでラストチャンス。違うスープ（貢丸湯など）を試そう。
-                </div>
+                <div class="menu-desc">土日休みなのでこれが最後。違うスープ（貢丸湯など）やおかずを試してみよう。</div>
             </div>
         </div>
 
         <div class="event">
-            <div class="time">08:00</div>
-            <div class="transport">
+            <div class="time-display">08:00</div>
+            <div class="transport-block blue">
                 <span class="transport-icon">🚆</span>
-                <div class="transport-content">
-                    <strong>台北駅 → 猴硐（ホウトン）駅</strong><br>
-                    台鉄（TRA）区間車（各駅停車）を利用。
-                    行き先：蘇澳(Su'ao) / 基隆(Keelung)方面行き。<br>
-                    ※ICカード（悠遊カード）で乗車可能。約50分。
-                </div>
+                <span><strong>台鉄(区間車)</strong>：台北駅 → 猴硐駅 (約50分)</span>
             </div>
-        </div>
-
-        <div class="event">
-            <div class="time">09:00</div>
-            <div class="shop-card activity">
-                <div class="shop-name">
-                    猴硐猫村 (Houtong Cat Village)
+            <div class="card life">
+                <div class="card-header">
+                    <div class="shop-name">猴硐猫村 (Houtong Cat Village)</div>
                     <a href="https://www.google.com/maps/search/?api=1&query=猴硐猫村" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
+                <div class="tag-row">
                     <span class="tag">観光</span>
                     <span class="tag">猫</span>
                 </div>
-                <div class="comment">
-                    <ul>
-                        <li><strong>見どころ:</strong> 駅を降りるとすぐ猫だらけ。廃墟となった選炭工場の遺跡もフォトジェニック。</li>
-                        <li><strong>注意:</strong> 人間の食べ物を猫に与えないこと。</li>
-                    </ul>
-                </div>
+                <div class="menu-desc">駅を出たらすぐ猫の世界。午前中の静かな時間を楽しむ。</div>
             </div>
         </div>
 
         <div class="event">
-            <div class="time">15:00</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    榕美樹館 (Ron Museum)
-                    <a href="https://www.google.com/maps/search/?api=1&query=榕美樹館" target="_blank" class="map-btn">Map 📍</a>
-                </div>
-                <div class="tag-container">
-                    <span class="tag">休憩</span>
-                    <span class="tag">中山</span>
-                </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
-                    <div class="menu-item">
-                        <span class="badge main">必食</span>
-                        <div class="menu-content">
-                            <span class="menu-chinese">招牌豆花<span class="menu-pinyin">(Zhāo pái dòu huā)</span></span>
-                            <span class="menu-desc">全部入りの看板メニュー。上品な味。</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="event">
-            <div class="time">17:00</div>
-            <div class="transport mrt-blue">
+            <div class="time-display">14:00</div>
+            <div class="transport-block green">
                 <span class="transport-icon">🚇</span>
-                <div class="transport-content">
-                    <strong>中山駅(経由) → 新埔民生駅</strong><br>
-                    <span class="line-tag bg-blue">BL</span>板南線 (Blue Line) - 頂埔/亜東病院行き
+                <span><strong>松山新店線</strong>：北門駅 (または大橋頭駅)</span>
+            </div>
+            <div class="card life">
+                <div class="card-header">
+                    <div class="shop-name">迪化街・大稲埕エリア</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=迪化街" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-row">
+                    <span class="tag">散策</span>
+                    <span class="tag">買い物</span>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <span class="badge shop">買物</span>
+                        <div class="menu-content"><span class="menu-name-jp">ドライフルーツ・カラスミ・竹細工</span></div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge shop">夕日</span>
+                        <div class="menu-content">
+                            <span class="menu-name-jp">大稲埕碼頭 (PIER5)</span>
+                            <span class="menu-desc">川沿いのコンテナマーケットで夕日を見ながらビール。</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="event">
-            <div class="time">18:00</div>
-            <div class="shop-card activity">
-                <div class="shop-name">
-                    板橋・裕民街夜市
-                    <a href="https://www.google.com/maps/search/?api=1&query=裕民街夜市" target="_blank" class="map-btn">Map 📍</a>
+            <div class="time-display">18:00</div>
+            <div class="transport-block walk">
+                <span class="transport-icon">🚶</span>
+                <span>徒歩 または MRT大橋頭駅へ</span>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">延三夜市 (Yansan Night Market)</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=延三夜市" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
+                <div class="tag-row">
+                    <span class="tag rec">ローカル飯</span>
                     <span class="tag">夕食</span>
-                    <span class="tag">超ローカル</span>
                 </div>
-                <div class="comment">
-                    観光客ゼロの「地元の台所」。バイクに注意しながら食べ歩き。
-                </div>
-                <div class="menu-box">
-                    <span class="menu-header">56巷口湯包</span>
+                <div class="note">観光客が少ない「バイクで乗り付ける」グルメ通り。</div>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">本命</span>
+                        <span class="badge must">名店</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">小籠湯包<span class="menu-pinyin">(Xiǎo lóng tāng bāo)</span></span>
-                            <span class="menu-desc">肉汁爆発注意。</span>
+                            <span class="menu-name-jp">肉入り白玉団子</span>
+                            <span class="menu-name-tw">施家鮮肉湯圓</span><span class="menu-pinyin">(Shī jiā xiān ròu tāng yuán)</span>
                         </div>
                     </div>
-                    <span class="menu-header">阿益魯肉飯</span>
                     <div class="menu-item">
-                        <span class="badge sub">名物</span>
+                        <span class="badge must">名店</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">羊肉羹<span class="menu-pinyin">(Yáng ròu gēng)</span></span>
-                            <span class="menu-desc">羊肉のとろみスープ。</span>
+                            <span class="menu-name-jp">蒸しおこわ</span>
+                            <span class="menu-name-tw">大橋頭老牌筒仔米糕</span><span class="menu-pinyin">(Tǒng zǎi mǐ gāo)</span>
                         </div>
+                    </div>
+                    <div class="menu-item">
+                        <span class="badge rec">OP</span>
+                        <div class="menu-content"><span class="menu-name-jp">※56巷口湯包 (行けたら行く)</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 5日目 -->
-    <div class="day-header" id="day5">
+    <!-- Day 5 -->
+    <div class="day-header">
         <span>Day 5: 1/10 (土)</span>
-        <span style="font-size:0.9rem">ラスト行列・帰国</span>
+        <span style="font-size:0.85rem">怒涛のラストスパート</span>
     </div>
+
     <div class="timeline">
         <div class="event">
-            <div class="time">05:40</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    阜杭豆漿 (2回目)
+            <div class="time-display">05:40</div>
+            <div class="transport-block taxi">
+                <span class="transport-icon">🚕</span>
+                <span>ホテル → 阜杭豆漿 (善導寺駅)</span>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">阜杭豆漿 (2回目)</div>
                 </div>
-                <div class="comment">
-                    2回目は「甜豆漿 (甘い豆乳)」や「焦糖甜餅 (キャラメルパン)」など甘い系に挑戦！
+                <div class="tag-row">
+                    <span class="tag rec">朝食1</span>
                 </div>
+                <div class="menu-desc">2回目は甘い系に挑戦。「甜豆漿 (甘い豆乳)」や「焦糖甜餅 (キャラメルパン)」など。</div>
             </div>
         </div>
 
         <div class="event">
-            <div class="time">10:30</div>
-            <div class="shop-card">
-                <div class="shop-name">
-                    城中市場 老牌牛肉拉麺大王
+            <div class="time-display">07:00</div>
+            <div class="transport-block taxi">
+                <span class="transport-icon">🚕</span>
+                <span>雙連エリアへ戻る</span>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">世界豆漿大王</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=世界豆漿大王+雙連" target="_blank" class="map-btn">Map 📍</a>
+                </div>
+                <div class="tag-row">
+                    <span class="tag">朝食2</span>
+                    <span class="tag">ハシゴ</span>
+                </div>
+                <div class="menu-desc">雙連駅近くの名店。鹹豆漿の飲み比べや、蛋餅(台湾クレープ)をシェア。</div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time-display">10:00</div>
+            <div class="card hotel">
+                <div class="card-header">
+                    <div class="shop-name">チェックアウト</div>
+                </div>
+                <div class="menu-desc">荷物を持って台北駅へ移動。コインロッカー等へ預けるか持ち歩き。</div>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="time-display">10:30</div>
+            <div class="transport-block walk">
+                <span class="transport-icon">🚶</span>
+                <span>台北駅周辺</span>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="shop-name">城中市場 老牌牛肉拉麺大王</div>
                     <a href="https://www.google.com/maps/search/?api=1&query=城中市場+老牌牛肉拉麺大王" target="_blank" class="map-btn">Map 📍</a>
                 </div>
-                <div class="tag-container">
-                    <span class="tag">ブランチ</span>
-                    <span class="tag">台北駅</span>
+                <div class="tag-row">
+                    <span class="tag rec">ブランチ</span>
+                    <span class="tag">〆</span>
                 </div>
-                <div class="menu-box">
-                    <span class="menu-header">指差し注文：</span>
+                <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="badge main">必食</span>
+                        <span class="badge must">必食</span>
                         <div class="menu-content">
-                            <span class="menu-chinese">炸醤麺 (小碗)<span class="menu-pinyin">(Zhà jiàng miàn)</span></span>
-                            <span class="menu-desc">ニンニクがガツンと効いたジャージャー麺。</span>
+                            <span class="menu-name-jp">ジャージャー麺 (小碗)</span>
+                            <span class="menu-name-tw">炸醤麺</span><span class="menu-pinyin">(Zhà jiàng miàn)</span>
+                            <span class="menu-desc">ニンニクをガツンと入れて旅を締める。</span>
                         </div>
                     </div>
                 </div>
@@ -1096,21 +1137,45 @@
         </div>
 
         <div class="event">
-            <div class="time">13:00</div>
-            <div class="transport mrt-airport">
+            <div class="time-display">13:00</div>
+            <div class="transport-block airport">
                 <span class="transport-icon">🚇</span>
-                <div class="transport-content">
-                    <strong>台北駅 → 桃園空港</strong><br>
-                    <span class="line-tag bg-airport">Airport Line</span>MRT空港線 (Express/快速)
-                </div>
+                <span><strong>空港線</strong>：台北駅 → 桃園空港 (16:30フライト)</span>
             </div>
+            <div class="card life">
+                <div class="card-header">
+                    <div class="shop-name">帰国</div>
+                </div>
+                <div class="menu-desc">お疲れ様でした！また台湾へ！</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modules -->
+    <div class="modules-section">
+        <h3>🧩 隙間モジュール (時間が空いたら使う)</h3>
+        <p style="font-size:0.9rem; color:#666; margin-bottom:20px;">「観光」ではなく「生活」を感じるための予備リスト。</p>
+        
+        <div class="module-card">
+            <strong>🌳 公園の健康器具 (30分)</strong><br>
+            <span style="font-size:0.9rem; color:#555;">食後の腹ごなしに、地元の高齢者に混ざって運動器具を使う。どこにでもある公園でOK。</span>
+        </div>
+        
+        <div class="module-card">
+            <strong>🚲 河川敷サイクリング (60分)</strong><br>
+            <span style="font-size:0.9rem; color:#555;">YouBikeで淡水河沿いを走る。信号がなく、風を感じる最高の「移動＝体験」。</span>
+        </div>
+        
+        <div class="module-card">
+            <strong>🏢 上班族(会社員)観察 (夕方)</strong><br>
+            <span style="font-size:0.9rem; color:#555;">南京東路や松江路の交差点で、帰宅するバイクの群れや、テイクアウトを買う人々を眺める。</span>
         </div>
     </div>
 
 </div>
 
 <footer>
-    © 2026 Taiwan Gourmet Trip Plan
+    © 2026 Taipei Travel Plan
 </footer>
 
 </body>

@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>台北旅行 最終チェックリスト</title>
+  <style>
+    :root{
+      --bg: #fff7fb;
+      --card: #ffffff;
+      --ink: #1f2937;
+      --muted:#6b7280;
+      --accent:#ec4899;
+      --accent2:#8b5cf6;
+      --line:#f1d5e3;
+      --ok:#10b981;
+      --warn:#f59e0b;
+      --shadow: 0 10px 25px rgba(31,41,55,.08);
+      --radius: 18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans JP", "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--ink);
+      background: radial-gradient(1100px 600px at 10% 0%, #ffe4f3 0%, transparent 55%),
+                  radial-gradient(900px 520px at 90% 10%, #ede9fe 0%, transparent 55%),
+                  var(--bg);
+    }
+    header{
+      padding:28px 16px 18px;
+      max-width:980px;
+      margin:0 auto;
+    }
+    .title{
+      display:flex; gap:14px; align-items:flex-start; flex-wrap:wrap;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background: linear-gradient(135deg, rgba(236,72,153,.16), rgba(139,92,246,.14));
+      border:1px solid rgba(236,72,153,.25);
+      color: #7c2d12;
+      font-weight:600;
+      font-size:13px;
+    }
+    h1{
+      margin:6px 0 6px;
+      font-size: clamp(22px, 3vw, 32px);
+      letter-spacing:.2px;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+      max-width:75ch;
+    }
+    main{
+      max-width:980px;
+      margin:0 auto;
+      padding: 0 16px 48px;
+      display:grid;
+      gap:14px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 12;
+      background:var(--card);
+      border:1px solid rgba(241,213,227,.85);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .card .hd{
+      padding:14px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      border-bottom:1px dashed rgba(241,213,227,.9);
+      background: linear-gradient(180deg, rgba(255,228,243,.55), rgba(255,255,255,0));
+    }
+    .card h2{
+      margin:0;
+      font-size:18px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .pill{
+      font-size:12px;
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid rgba(236,72,153,.22);
+      color: #9d174d;
+      background: rgba(236,72,153,.08);
+      white-space:nowrap;
+    }
+    .card .bd{ padding:14px 16px 16px; }
+    .meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:10px;
+    }
+    .meta code{
+      font-family:var(--mono);
+      font-size:12px;
+      background:#fafafa;
+      border:1px solid #eee;
+      padding:2px 6px;
+      border-radius:8px;
+    }
+    .section-note{
+      margin:0 0 10px;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:13px;
+    }
+    ul.check{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:8px;
+    }
+    li.item{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(241,213,227,.85);
+      background: rgba(255,255,255,.6);
+    }
+    li.item:hover{ border-color: rgba(236,72,153,.35); }
+    input[type="checkbox"]{
+      width:18px; height:18px;
+      margin-top:2px;
+      accent-color: var(--accent);
+      flex:0 0 auto;
+    }
+    .txt{
+      flex:1 1 auto;
+      line-height:1.45;
+    }
+    .txt small{
+      display:block;
+      color:var(--muted);
+      margin-top:3px;
+      line-height:1.4;
+    }
+    .kicker{
+      font-size:12px;
+      color:#9d174d;
+      font-weight:700;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+    }
+    details{
+      border-top:1px dashed rgba(241,213,227,.9);
+      padding:10px 16px 14px;
+      background: rgba(255,255,255,.55);
+    }
+    summary{
+      cursor:pointer;
+      font-weight:700;
+      color:#7c2d12;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    .tips{
+      margin:10px 0 0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:13px;
+    }
+    .tipline{
+      display:flex;
+      gap:10px;
+      margin:8px 0 0;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(226,232,240,.9);
+      background: rgba(16,185,129,.06);
+    }
+    .dot{ width:10px; height:10px; border-radius:999px; margin-top:6px; background:var(--ok); flex:0 0 auto;}
+    .warn .dot{ background:var(--warn); }
+    footer{
+      max-width:980px;
+      margin:0 auto;
+      padding: 8px 16px 28px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .twocol{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+    }
+    @media (min-width: 860px){
+      .twocol{ grid-template-columns: 1fr 1fr; }
+      .card.span6{ grid-column: span 6; }
+    }
+    .printbar{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-top:10px;
+    }
+    button{
+      cursor:pointer;
+      border:1px solid rgba(236,72,153,.25);
+      background: rgba(236,72,153,.10);
+      color:#9d174d;
+      border-radius:12px;
+      padding:9px 12px;
+      font-weight:700;
+    }
+    button:hover{ background: rgba(236,72,153,.16); }
+    .hint{
+      font-size:12px;
+      color:var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title">
+      <div class="badge">🧳 台北旅行 / 最終チェックリスト</div>
+      <div class="badge">☔ 雨対策 & 現金中心</div>
+      <div class="badge">📶 ローミング + eSIM</div>
+      <div class="badge">🗣️ NICT（会話）& Papago（撮影）</div>
+    </div>
+    <h1>持ち物＆事前準備（共有用）</h1>
+    <p class="sub">
+      機内持ち込み（バックパック1つ＋小バッグ）前提。<br/>
+      日中は折りたたみリュック（20L）で行動、ベース装備は宿に置く運用。
+    </p>
+    <div class="printbar">
+      <button onclick="window.print()">🖨️ 印刷 / PDF化</button>
+      <span class="hint">※チェックはこの端末のブラウザ内で保持されます（共有リンク先では別扱い）。</span>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <div class="hd">
+        <h2>✅ 出発前に“完了”しておくこと</h2>
+        <span class="pill">やること（タスク）</span>
+      </div>
+      <div class="bd">
+        <p class="section-note">「現地で詰まらない」ために、ここだけは出発前に完了させる。</p>
+        <ul class="check">
+          <li class="item"><input type="checkbox"/><div class="txt"><b>パスポート（原本）</b><small>残存期間チェック／持ち出し位置を固定</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>パスポートコピー（紙）＋画像保存</b><small>紙は小バッグ、画像はオフラインで見られる場所へ</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>航空券・ホテル控え（オフライン）</b><small>PDF/スクショで保存（通信なしでも確認できる）</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>Visit Japan Web 登録</b><small>登録済みならOK。念のためQR/控えを保存</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>海外旅行保険：証券番号・連絡先を保存</b><small>紙メモ or ロック画面メモでも可</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>楽天モバイル：海外ローミング設定確認</b><small>到着後すぐ通信できる状態に</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>同行者eSIM（データ専用）：本人登録完了</b><small>パスポート画像は <b>2MB以下</b> で通った実績あり</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>eSIM登録の証跡を保存</b><small>完了画面スクショ／購入画面スクショ（ICCID/期間が分かる部分）</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>Google Maps：台北のオフライン地図DL</b><small>店・ホテル・空港も保存しておくと勝ち</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>YouBikeアプリ最新版</b><small>アップデート済み</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>洗手間地圖（トイレMAP）</b><small>インストール済み</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>統一發票兌獎（レシート宝くじ）</b><small>インストール済み／ログイン確認</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>翻訳：NICT（会話）＋Papago（撮影/メニュー）</b><small>オフライン言語も設定できる範囲で</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>悠遊卡（EasyCard）持参</b><small>前回のものを持っていく</small></div></li>
+        </ul>
+      </div>
+      <details>
+        <summary>💡 ちょいコツ（現地で迷わない）</summary>
+        <div class="tips">
+          <div class="tipline"><span class="dot"></span><div>地図は「ホテル」「空港」「夜市」「第1目的地」を★保存。迷子コストが激減。</div></div>
+          <div class="tipline warn"><span class="dot"></span><div>重要なスクショ（eSIM/保険/予約）は“オフラインで見られる場所”に。クラウドだけだと通信トラブルで詰む。</div></div>
+        </div>
+      </details>
+    </section>
+
+    <section class="card span6">
+      <div class="hd">
+        <h2>🎒 手元バッグ（小バッグ/ショルダー）</h2>
+        <span class="pill">常に身につける</span>
+      </div>
+      <div class="bd">
+        <p class="section-note">紛失・スマホ死亡でも致命傷にならない “核”。</p>
+        <ul class="check">
+          <li class="item"><input type="checkbox"/><div class="txt"><b>パスポート（原本）</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>財布（現金＋カード1枚）</b><small>現金中心：小額紙幣・小銭回る前提</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>スマホ（スマホショルダー）</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>パスポートコピー（紙）</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>保険・緊急連絡先メモ</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>折りたたみ傘</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>ティッシュ</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>ウェットティッシュ</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>手指消毒</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>イヤホン</b></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card span6">
+      <div class="hd">
+        <h2>🧠 日中リュック（折りたたみ20L）</h2>
+        <span class="pill">毎朝これで出る</span>
+      </div>
+      <div class="bd">
+        <p class="section-note">雨・電池・食べ歩きの “快適運用セット”。</p>
+        <ul class="check">
+          <li class="item"><input type="checkbox"/><div class="txt"><b>折りたたみリュック（20L）</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>水筒 400ml</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>モバイルバッテリー（スマホ1回分）</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>短いUSBケーブル</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>小銭ポーチ</b><small>夜市・市場・ローカル食堂で回転UP</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>ポリ袋 2〜3枚</b><small>ゴミ袋／濡れ物隔離／食べかけ用</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>ジップロック（大1＋小2〜3）</b><small>重要物（充電/紙/薬）を防水隔離</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>45Lゴミ袋 2枚（内ライナー＋予備）</b><small>防水弱いリュックの最終防衛線</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>スマホ対応手袋</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>マフラー</b><small>寒い日だけでOK</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>レインウェア（風雨の日は必携）</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>ウルトラライトダウン（寒波保険・圧縮）</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>日焼け止め</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>リップクリーム</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>絆創膏（靴ずれ）</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>替え靴下 1足</b><small>雨で濡れた時の詰み回避</small></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="hd">
+        <h2>🏨 宿ベース（バックパックに入れて置く）</h2>
+        <span class="pill">予備・洗濯・分散保管</span>
+      </div>
+      <div class="bd">
+        <div class="meta">
+          <span>運用：<code>バックパックは宿に置く</code>／<code>日中は20Lで行動</code></span>
+        </div>
+        <ul class="check">
+          <li class="item"><input type="checkbox"/><div class="txt"><b>充電器（AC）</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>USBケーブル予備</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>予備カード（1枚）</b><small>宿に分散保管</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>予備現金（少額でOK）</b><small>宿に分散保管</small></div></li>
+
+          <li class="item"><input type="checkbox"/><div class="txt"><b>洗剤シート/小分け洗剤（1〜2回分）</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>洗濯ネット（小）</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>S字フック</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>キャンプ用ロープ（物干し）</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>クリップ/洗濯ばさみ（2個以上）</b><small>ロープ運用の完成パーツ</small></div></li>
+
+          <li class="item"><input type="checkbox"/><div class="txt"><b>セームタオル 1枚</b><small>タオル課金・乾燥対策</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>ハンドタオル 3枚</b><small>薄手推奨（乾きやすい）</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>手ぬぐい 2枚</b></div></li>
+        </ul>
+      </div>
+      <details>
+        <summary>🧺 手洗い洗濯（最短運用）</summary>
+        <div class="tips">
+          <div class="tipline"><span class="dot"></span><div>風呂で手洗い → ネットにまとめて水切り → ロープ＋クリップで干す。</div></div>
+          <div class="tipline warn"><span class="dot"></span><div>分厚いタオルは乾きにくい。セーム＋薄手タオルが勝ち。</div></div>
+        </div>
+      </details>
+    </section>
+
+    <section class="card span6">
+      <div class="hd">
+        <h2>🧼 トイレタリー</h2>
+        <span class="pill">機内持ち込み注意</span>
+      </div>
+      <div class="bd">
+        <p class="section-note">台湾の使い捨てアメニティ非提供前提で必携を確定。</p>
+        <ul class="check">
+          <li class="item"><input type="checkbox"/><div class="txt"><b>歯ブラシ</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>歯みがき粉（小さめ）</b><small>液体は100ml以下＋透明袋</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>カミソリ</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>（任意）シャンプー/ボディソープのパウチ</b><small>合わない時の保険（1〜2回分）</small></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card span6">
+      <div class="hd">
+        <h2>💊 体調・小ケア</h2>
+        <span class="pill">食べ歩き対策</span>
+      </div>
+      <div class="bd">
+        <p class="section-note">「胃腸を守る」＝食べ続けられる状態を作る。</p>
+        <ul class="check">
+          <li class="item"><input type="checkbox"/><div class="txt"><b>整腸剤</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>消化系（胃もたれ対策）</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>解熱鎮痛薬</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>のど飴（任意）</b></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>フロスピック/爪楊枝（任意）</b></div></li>
+        
+          <li class="item"><input type="checkbox"/><div class="txt"><b>葛根湯</b><small>寒気・ひきはじめ対策（体調の“崩れかけ”用）</small></div></li>
+          <li class="item"><input type="checkbox"/><div class="txt"><b>マルチビタミン</b><small>食生活が乱れた日の保険（飲み慣れているもの）</small></div></li>
+</ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="hd">
+        <h2>👕 衣類（最新版）</h2>
+        <span class="pill">フリース運用</span>
+      </div>
+      <div class="bd">
+        <p class="section-note">雨・風・寒波に備えてレイヤーで調整。</p>
+
+        <div class="twocol">
+          <div>
+            <div class="kicker">着ていく</div>
+            <ul class="check" style="margin-top:8px">
+              <li class="item"><input type="checkbox"/><div class="txt"><b>ウールニット</b></div></li>
+              <li class="item"><input type="checkbox"/><div class="txt"><b>ズボン（動きやすい1本）</b></div></li>
+              <li class="item"><input type="checkbox"/><div class="txt"><b>スニーカー</b></div></li>
+              <li class="item"><input type="checkbox"/><div class="txt"><b>（必要なら）ヒートテックタイツ</b></div></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="kicker">持っていく</div>
+            <ul class="check" style="margin-top:8px">
+              <li class="item"><input type="checkbox"/><div class="txt"><b>モンベル ウールインナー</b><small>数日運用</small></div></li>
+              <li class="item"><input type="checkbox"/><div class="txt"><b>長袖カットソー 3枚</b><small>着用＋パジャマ含む</small></div></li>
+              <li class="item"><input type="checkbox"/><div class="txt"><b>ヒートテックタイツ 2枚</b></div></li>
+              <li class="item"><input type="checkbox"/><div class="txt"><b>フリース 1枚</b><small>部屋着にも重ね着にも</small></div></li>
+              <li class="item"><input type="checkbox"/><div class="txt"><b>ウルトラライトダウン</b><small>寒波/早朝の保険</small></div></li>
+              <li class="item"><input type="checkbox"/><div class="txt"><b>モンベル レインウェア</b><small>雨＋防風の最終兵器</small></div></li>
+              <li class="item"><input type="checkbox"/><div class="txt"><b>パンツ 3枚</b><small>手洗い1回前提</small></div></li>
+              <li class="item"><input type="checkbox"/><div class="txt"><b>靴下 3足</b><small>手洗い1回前提</small></div></li>
+              <li class="item"><input type="checkbox"/><div class="txt"><b>スウェットズボン（宿）</b></div></li>
+              <li class="item"><input type="checkbox"/><div class="txt"><b>マフラー</b></div></li>
+              <li class="item"><input type="checkbox"/><div class="txt"><b>スマホ対応手袋</b></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <details>
+        <summary>🧩 レイヤーの使い分け（目安）</summary>
+        <div class="tips">
+          <div class="tipline"><span class="dot"></span><div>普通：インナー＋カットソー/ニット＋フリース（必要時）</div></div>
+          <div class="tipline"><span class="dot"></span><div>寒い朝：ULダウンを足す</div></div>
+          <div class="tipline warn"><span class="dot"></span><div>雨・風：レインウェアを外側に</div></div>
+        </div>
+      </details>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>最終更新: 2026-01-04</div>
+    <div>Tips: 迷ったら「重要物は小バッグ」「防水は二重」「雨の日はレインを外側」。</div>
+  </footer>
+</body>
+</html>

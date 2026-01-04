@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇹🇼 台湾旅行 中国語会話・完全攻略バイブル</title>
+    <style>
+        :root {
+            --primary-color: #c82e2e; /* 台湾らしい赤 */
+            --accent-color: #e6b422; /* ゴールド */
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --table-header-bg: #e8e8e8;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Biz UDPGothic", "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            overflow: hidden;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .section-header {
+            padding: 15px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background-color: var(--accent-color);
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+
+        .content-block {
+            padding: 15px 20px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #444;
+            border-left: 4px solid #ddd;
+            padding-left: 10px;
+        }
+
+        /* Table Styles */
+        .phrase-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .phrase-table th, .phrase-table td {
+            padding: 12px 10px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .phrase-table th {
+            background-color: var(--table-header-bg);
+            font-weight: bold;
+            color: #555;
+            white-space: nowrap;
+        }
+
+        .phrase-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Chinese Text Highlight */
+        .zh {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .pinyin {
+            font-size: 0.85rem;
+            color: #666;
+            font-family: Arial, sans-serif;
+            display: block;
+        }
+
+        .note {
+            font-size: 0.8rem;
+            color: #777;
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* Badge for Emphasis */
+        .badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .badge-rec { background-color: #ffe0e0; color: #d00; border: 1px solid #ffb0b0; }
+        .badge-info { background-color: #e0f0ff; color: #0066cc; border: 1px solid #b0d0ff; }
+
+        /* Scenario Flow */
+        .flow-step {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .flow-title {
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Dialogue Box */
+        .dialogue {
+            background-color: #f4f8fb;
+            border-left: 4px solid #3498db;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .dialogue-person {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #3498db;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .dialogue.you {
+            background-color: #fff4f4;
+            border-left-color: var(--primary-color);
+        }
+        .dialogue.you .dialogue-person {
+            color: var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 15px;
+            color: #666;
+            font-size: 0.9rem;
+            background-color: #e8e8e8;
+        }
+
+        .tip-box {
+            background-color: #fff8dc;
+            border: 1px solid #f0e68c;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* Mobile Optimization for Tables */
+        @media (max-width: 480px) {
+            .phrase-table th { display: none; }
+            .phrase-table td { display: block; padding: 8px 10px; }
+            .phrase-table tr { 
+                display: block; 
+                margin-bottom: 15px; 
+                border: 1px solid #eee;
+                border-radius: 8px;
+                padding: 10px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            }
+            .phrase-table tr:last-child { margin-bottom: 0; }
+            .phrase-table tr td:first-child {
+                font-weight: bold;
+                border-bottom: 1px solid #f5f5f5;
+                margin-bottom: 5px;
+                color: #222;
+            }
+            .phrase-table tr td:last-child { border-bottom: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🇹🇼 台湾旅行 完全攻略バイブル</h1>
+    <p>現地で使える「対戦表（カンニングペーパー）」</p>
+</header>
+
+<div class="container">
+
+    <!-- 1. 基本の挨拶 -->
+    <div class="section-card">
+        <div class="section-header">
+            <h2>📍 1. 基本の挨拶と魔法の単語</h2>
+        </div>
+        <div class="content-block">
+            <p>全シーン共通。まずはこれだけ覚えればOKです。</p>
+            <table class="phrase-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%">日本語</th>
+                        <th style="width: 40%">中国語 / ピンイン</th>
+                        <th>備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>こんにちは</td>
+                        <td><span class="zh">你好</span><span class="pinyin">Nǐ hǎo</span></td>
+                        <td>店員を呼ぶときにも使えます</td>
+                    </tr>
+                    <tr>
+                        <td>ありがとう</td>
+                        <td><span class="zh">謝謝</span><span class="pinyin">Xièxie</span></td>
+                        <td>感謝を伝える基本</td>
+                    </tr>
+                    <tr>
+                        <td>すみません</td>
+                        <td><span class="zh">不好意思</span><span class="pinyin">Bù hǎoyìsi</span></td>
+                        <td>謝罪、呼びかけ、道を空けてほしい時すべて</td>
+                    </tr>
+                    <tr>
+                        <td>これ</td>
+                        <td><span class="zh">這個</span><span class="pinyin">Zhège</span></td>
+                        <td>指差しながら「我要這個（これください）」</td>
+                    </tr>
+                    <tr>
+                        <td>おすすめ</td>
+                        <td><span class="zh">推薦</span><span class="pinyin">Tuījiàn</span></td>
+                        <td>迷ったら「推薦？」と聞く</td>
+                    </tr>
+                    <tr>
+                        <td>はい/そうです</td>
+                        <td><span class="zh">對</span><span class="pinyin">Duì</span></td>
+                        <td>確認された時の返事</td>
+                    </tr>
+                    <tr>
+                        <td>いいえ</td>
+                        <td><span class="zh">不是</span><span class="pinyin">Bú shì</span></td>
+                        <td>違う時の返事</td>
+                    </tr>
+                    <tr>
+                        <td>トイレ</td>
+                        <td><span class="zh">洗手間</span><span class="pinyin">Xǐshǒujiān</span></td>
+                        <td>「シーソウジエン？」</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 2. ホテル -->
+    <div class="section-card">
+        <div class="section-header">
+            <h2>🏨 2. ホテルでの滞在</h2>
+        </div>
+        <div class="content-block">
+            <h3>チェックイン・フロント</h3>
+            <table class="phrase-table">
+                <tbody>
+                    <tr>
+                        <td>チェックイン</td>
+                        <td><span class="zh">我要 Check In</span><span class="pinyin">Wǒ yào Check In</span></td>
+                    </tr>
+                    <tr>
+                        <td>予約しています</td>
+                        <td><span class="zh">我有預約</span><span class="pinyin">Wǒ yǒu yùyuē</span></td>
+                    </tr>
+                    <tr>
+                        <td>荷物を預ける</td>
+                        <td><span class="zh">可以寄放行李嗎？</span><span class="pinyin">Kěyǐ jìfàng xínglǐ ma?</span></td>
+                        <td><span class="note">チェックイン前・アウト後に便利</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>部屋のトラブル（サバイバル）</h3>
+            <p>フロントに電話、または直接行って伝える時のフレーズです。</p>
+            <table class="phrase-table">
+                <tbody>
+                    <tr>
+                        <td>WiFiが使えない</td>
+                        <td><span class="zh">WiFi 不能用</span><span class="pinyin">WiFi bù néng yòng</span></td>
+                    </tr>
+                    <tr>
+                        <td>お湯が出ない</td>
+                        <td><span class="zh">沒有熱水</span><span class="pinyin">Méiyǒu rèshuǐ</span></td>
+                    </tr>
+                    <tr>
+                        <td>トイレが詰まった</td>
+                        <td><span class="zh">馬桶塞住了</span><span class="pinyin">Mǎtǒng sāizhù le</span></td>
+                    </tr>
+                    <tr>
+                        <td>カードキー無効</td>
+                        <td><span class="zh">房卡不能用</span><span class="pinyin">Fángkǎ bù néng yòng</span></td>
+                    </tr>
+                    <tr>
+                        <td>隣(外)がうるさい</td>
+                        <td><span class="zh">太吵了</span><span class="pinyin">Tài chǎo le</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 3. レストラン -->
+    <div class="section-card">
+        <div class="section-header">
+            <h2>🍽 3. レストラン・食堂</h2>
+        </div>
+        <div class="content-block">
+            
+            <div class="flow-step">
+                <span class="flow-title">① 入店時（店員からの質問）</span>
+                <div class="dialogue">
+                    <span class="dialogue-person">店員</span>
+                    <span class="zh">幾位？</span><br>
+                    <span class="pinyin">Jǐ wèi?</span><br>
+                    <span class="note">意味：何名様ですか？</span>
+                </div>
+                <div class="dialogue you">
+                    <span class="dialogue-person">あなた</span>
+                    <span class="zh">一位 / 兩位 / 三位 / 四位</span><br>
+                    <span class="pinyin">Yī / Liǎng / Sān / Sì</span><br>
+                    <span class="note">※2人は「二(Er)」ではなく「兩(Liang)」</span>
+                </div>
+                
+                <hr style="border:0; border-top:1px dashed #ddd; margin:10px 0;">
+
+                <div class="dialogue">
+                    <span class="dialogue-person">店員</span>
+                    <span class="zh">內用還是外帶？</span><br>
+                    <span class="pinyin">Nèi yòng háishì wài dài?</span><br>
+                    <span class="note">意味：店内で食べますか、持ち帰りですか？</span>
+                </div>
+                <div class="dialogue you">
+                    <span class="dialogue-person">あなた</span>
+                    <span class="zh">內用 (店内) / 外帶 (持ち帰り)</span><br>
+                    <span class="pinyin">Nèi yòng / Wài dài</span>
+                </div>
+            </div>
+
+            <div class="flow-step">
+                <span class="flow-title">② 注文する（つなぎ言葉と締めくくり）</span>
+                <table class="phrase-table">
+                    <tbody>
+                        <tr>
+                            <td>これと、これと…</td>
+                            <td><span class="zh">我要這個、還有這個</span><span class="pinyin">Wǒ yào zhège, háiyǒu zhège...</span></td>
+                            <td><span class="note">還有(ハイヨウ)＝And</span></td>
+                        </tr>
+                        <tr>
+                            <td>以上です</td>
+                            <td><span class="zh">就這樣</span><span class="pinyin">Jiù zhèyàng</span></td>
+                            <td><span class="note">That's all. 注文終了の合図</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="flow-step">
+                <span class="flow-title">③ 味の確認（パクチーと辛さ）</span>
+                <div class="dialogue">
+                    <span class="dialogue-person">店員</span>
+                    <span class="zh">要不要香菜？ / 吃香菜嗎？</span><br>
+                    <span class="pinyin">Yào bùyào xiāngcài?</span><br>
+                    <span class="note">意味：パクチー入れますか？</span>
+                </div>
+                <div class="dialogue you">
+                    <span class="dialogue-person">あなた</span>
+                    <span class="zh">不要香菜 (いらない) / 要 (いる)</span><br>
+                    <span class="pinyin">Bú yào xiāngcài / Yào</span>
+                </div>
+
+                <hr style="border:0; border-top:1px dashed #ddd; margin:10px 0;">
+
+                <div class="dialogue">
+                    <span class="dialogue-person">店員</span>
+                    <span class="zh">要辣嗎？ / 敢吃辣嗎？</span><br>
+                    <span class="pinyin">Yào là ma?</span><br>
+                    <span class="note">意味：辛くしますか？</span>
+                </div>
+                <div class="dialogue you">
+                    <span class="dialogue-person">あなた</span>
+                    <span class="zh">不要辣 (辛くなし) / 微辣 (少し辛く)</span><br>
+                    <span class="pinyin">Bú yào là / Wéi là</span>
+                </div>
+            </div>
+
+            <div class="flow-step">
+                <span class="flow-title">④ 食事中のトラブル・会計</span>
+                <table class="phrase-table">
+                    <tbody>
+                        <tr>
+                            <td>料理がまだ来ない</td>
+                            <td><span class="zh">我的菜還沒來</span><span class="pinyin">Wǒ de cài hái méi lái</span></td>
+                            <td><span class="note">店員:「確認します(幫你查一下)」</span></td>
+                        </tr>
+                        <tr>
+                            <td>これ頼んでない</td>
+                            <td><span class="zh">我沒點這個</span><span class="pinyin">Wǒ méi diǎn zhège</span></td>
+                        </tr>
+                        <tr>
+                            <td>お会計お願いします</td>
+                            <td><span class="zh">我要買單</span><span class="pinyin">Wǒ yào mǎidān</span></td>
+                        </tr>
+                        <tr>
+                            <td>カード使えますか？</td>
+                            <td><span class="zh">可以刷卡嗎？</span><span class="pinyin">Kěyǐ shuākǎ ma?</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. ドリンクスタンド -->
+    <div class="section-card">
+        <div class="section-header">
+            <h2>🧋 4. ドリンクスタンド完全攻略</h2>
+        </div>
+        <div class="content-block">
+            <h3>STEP 1：メニューを選ぶ（人気ドリンク）</h3>
+            <table class="phrase-table">
+                <thead>
+                    <tr>
+                        <th>日本語</th>
+                        <th>中国語 / ピンイン</th>
+                        <th>特徴</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>タピオカミルクティー</td>
+                        <td><span class="zh">珍珠奶茶</span><span class="pinyin">Zhēnzhū nǎichá</span></td>
+                        <td>基本。濃厚。</td>
+                    </tr>
+                    <tr>
+                        <td>タピオカ<span style="color:red">鮮</span>ミルクティー</td>
+                        <td><span class="zh">珍珠鮮奶茶</span><span class="pinyin">Zhēnzhū xiān nǎichá</span></td>
+                        <td>「鮮」＝牛乳使用。</td>
+                    </tr>
+                    <tr>
+                        <td>フルーツティー</td>
+                        <td><span class="zh">水果茶</span><span class="pinyin">Shuǐguǒ chá</span></td>
+                        <td>果実たっぷり。</td>
+                    </tr>
+                    <tr>
+                        <td>ヤクルト緑茶</td>
+                        <td><span class="zh">多多綠茶</span><span class="pinyin">Duōduō lǜchá</span></td>
+                        <td>国民的飲料。</td>
+                    </tr>
+                    <tr>
+                        <td>ウーロン茶</td>
+                        <td><span class="zh">烏龍茶</span><span class="pinyin">Wūlóng chá</span></td>
+                        <td>ストレートも美味。</td>
+                    </tr>
+                    <tr>
+                        <td>レモンティー</td>
+                        <td><span class="zh">檸檬紅茶</span><span class="pinyin">Níngméng hóngchá</span></td>
+                        <td>酸味強め。</td>
+                    </tr>
+                    <tr>
+                        <td>タロイモミルク</td>
+                        <td><span class="zh">芋頭牛奶</span><span class="pinyin">Yùtou niúnǎi</span></td>
+                        <td>芋好きに最適。</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>STEP 2：サイズ</h3>
+            <p><span class="badge badge-info">大杯 (Dà bēi)</span> Lサイズ（基本）<br>
+            <span class="badge badge-info">中杯 (Zhōng bēi)</span> Mサイズ</p>
+
+            <h3>STEP 3：甘さ（甜度）</h3>
+            <div class="dialogue">
+                <span class="dialogue-person">店員</span>
+                <span class="zh">甜度冰塊？</span><span class="pinyin">Tiándù bīngkuài?</span>
+            </div>
+            <table class="phrase-table">
+                <tr><td>100% 激甘</td><td><span class="zh">正常糖</span><span class="pinyin">Zhèngcháng</span></td></tr>
+                <tr><td>70% 甘め</td><td><span class="zh">少糖</span><span class="pinyin">Shǎo táng</span></td></tr>
+                <tr><td><span class="badge badge-rec">推奨</span> 50%</td><td><span class="zh">半糖</span><span class="pinyin">Bàn táng</span><br><span class="note">日本人の「普通」はこれ</span></td></tr>
+                <tr><td>30% 微糖</td><td><span class="zh">微糖</span><span class="pinyin">Wéi táng</span></td></tr>
+                <tr><td>0% 無糖</td><td><span class="zh">無糖</span><span class="pinyin">Wú táng</span></td></tr>
+            </table>
+
+            <h3>STEP 4：氷の量（冰塊）</h3>
+            <table class="phrase-table">
+                <tr><td>普通</td><td><span class="zh">正常冰</span><span class="pinyin">Zhèngcháng bīng</span></td></tr>
+                <tr><td>少なめ</td><td><span class="zh">少冰</span><span class="pinyin">Shǎo bīng</span></td></tr>
+                <tr><td>微量</td><td><span class="zh">微冰</span><span class="pinyin">Wéi bīng</span></td></tr>
+                <tr><td>氷なし</td><td><span class="zh">去冰</span><span class="pinyin">Qù bīng</span><br><span class="note">冷たいけど氷なし</span></td></tr>
+                <tr><td>完全氷なし</td><td><span class="zh">完全去冰</span><span class="pinyin">Wánquán qù bīng</span><br><span class="note">常温に近くなる</span></td></tr>
+            </table>
+
+            <h3>STEP 5：トッピング（配料）</h3>
+            <p>「加 (Jiā) ...」と言って追加します。</p>
+            <ul>
+                <li><strong>タピオカ：</strong> 珍珠 (Zhēnzhū) / 波霸 (Bōbà / 大粒)</li>
+                <li><strong>ナタデココ：</strong> 椰果 (Yēguǒ)</li>
+                <li><strong>仙草ゼリー：</strong> 仙草 (Xiāncǎo)</li>
+                <li><strong>プリン：</strong> 布丁 (Bùdīng)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 5. 豆花 -->
+    <div class="section-card">
+        <div class="section-header">
+            <h2>🍮 5. 豆花（トウファ）トッピング</h2>
+        </div>
+        <div class="content-block">
+            <p><strong>「ベース」＋「温度」＋「トッピング」</strong>を選びます。</p>
+            <ol style="margin-bottom:20px; padding-left:20px;">
+                <li><span class="zh">我要一碗豆花</span> (豆花1つください)</li>
+                <li><span class="zh">冰的</span> (冷) または <span class="zh">熱的</span> (温)</li>
+                <li>トッピング指差し選択 ↓</li>
+            </ol>
+            
+            <table class="phrase-table">
+                <thead>
+                    <tr>
+                        <th width="20%">種類</th>
+                        <th width="40%">中国語 / ピンイン</th>
+                        <th>特徴</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>タロイモ団子</strong></td>
+                        <td><span class="zh">芋圓</span><span class="pinyin">Yùyuán</span></td>
+                        <td>モチモチ。必須。</td>
+                    </tr>
+                    <tr>
+                        <td>サツマイモ団子</td>
+                        <td><span class="zh">地瓜圓</span><span class="pinyin">Dìguāyuán</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>白玉団子</td>
+                        <td><span class="zh">湯圓</span><span class="pinyin">Tāngyuán</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>ピーナッツ</strong></td>
+                        <td><span class="zh">花生</span><span class="pinyin">Huāshēng</span></td>
+                        <td>柔らかい。絶品。</td>
+                    </tr>
+                    <tr>
+                        <td>あずき</td>
+                        <td><span class="zh">紅豆</span><span class="pinyin">Hóngdòu</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>緑豆</td>
+                        <td><span class="zh">綠豆</span><span class="pinyin">Lǜdòu</span></td>
+                        <td>夏バテ防止。</td>
+                    </tr>
+                    <tr>
+                        <td>ハトムギ</td>
+                        <td><span class="zh">薏仁</span><span class="pinyin">Yìrén</span></td>
+                        <td>美肌効果。</td>
+                    </tr>
+                    <tr>
+                        <td>仙草ゼリー</td>
+                        <td><span class="zh">仙草</span><span class="pinyin">Xiāncǎo</span></td>
+                        <td>黒いゼリー。</td>
+                    </tr>
+                    <tr>
+                        <td>愛玉ゼリー</td>
+                        <td><span class="zh">愛玉</span><span class="pinyin">Àiyù</span></td>
+                        <td>透明なゼリー。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 6. コンビニ・スーパー -->
+    <div class="section-card">
+        <div class="section-header">
+            <h2>🏪 6. コンビニ・スーパー</h2>
+        </div>
+        <div class="content-block">
+            <h3>レジでの会話</h3>
+            <table class="phrase-table">
+                <tbody>
+                    <tr>
+                        <td><span class="zh">要袋子嗎？</span><br><span class="note">袋いりますか？</span></td>
+                        <td><span class="zh">要 (いる)</span><br><span class="zh">不用 (いらない)</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="zh">要加熱嗎？</span><br><span class="note">温めますか？</span></td>
+                        <td><span class="zh">要 (お願い)</span><br><span class="zh">不用 (結構です)</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="zh">有載具嗎？</span><br><span class="note">電子レシートは？</span></td>
+                        <td><span class="zh">沒有 (Méiyǒu)</span><br><span class="note">※持ってない＝紙レシートもらう</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>店内POP・注意書き（これでお得！）</h3>
+            <table class="phrase-table">
+                <thead>
+                    <tr>
+                        <th>中国語</th>
+                        <th>意味</th>
+                        <th>解説</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="zh">買一送一</span></td>
+                        <td>1つ買うと1つ無料</td>
+                        <td>実質半額。Buy 1 Get 1 Free。</td>
+                    </tr>
+                    <tr>
+                        <td><span class="zh">第二件六折</span></td>
+                        <td>2つ目は40%OFF</td>
+                        <td>「六折」＝6掛け(4割引)。</td>
+                    </tr>
+                    <tr>
+                        <td><span class="zh">半價</span></td>
+                        <td>半額</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><span class="zh">請勿自取</span></td>
+                        <td>勝手に取らないで</td>
+                        <td>レジ横スナック等。</td>
+                    </tr>
+                    <tr>
+                        <td><span class="zh">小心燙</span></td>
+                        <td>やけど注意</td>
+                        <td>おでん・煮卵鍋。</td>
+                    </tr>
+                    <tr>
+                        <td><span class="zh">辣 / 不辣</span></td>
+                        <td>辛い / 辛くない</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 7. 夜市・屋台 -->
+    <div class="section-card">
+        <div class="section-header">
+            <h2>🍗 7. 夜市・屋台（巨大唐揚げ等）</h2>
+        </div>
+        <div class="content-block">
+            <div class="dialogue">
+                <span class="dialogue-person">店員</span>
+                <span class="zh">要切嗎？</span><br>
+                <span class="pinyin">Yào qiē ma?</span><br>
+                <span class="note">意味：切りますか？</span>
+            </div>
+            <div class="dialogue you">
+                <span class="dialogue-person">あなた</span>
+                <span class="zh">要切 (シェアする) / 不切 (丸かじり)</span><br>
+                <span class="pinyin">Yào qiē / Bù qiē</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="dialogue-person">店員</span>
+                <span class="zh">要辣嗎？</span><br>
+                <span class="pinyin">Yào là ma?</span><br>
+                <span class="note">意味：辛くしますか？</span>
+            </div>
+            <div class="dialogue you">
+                <span class="dialogue-person">あなた</span>
+                <span class="zh">不要辣 (なし) / 微辣 (少し)</span><br>
+                <span class="pinyin">Bú yào là / Wéi là</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. サバイバル -->
+    <div class="section-card">
+        <div class="section-header">
+            <h2>🆘 8. 困った時のサバイバル</h2>
+        </div>
+        <div class="content-block">
+            <p>言葉が通じない時、トラブル時の切り札です。</p>
+            <table class="phrase-table">
+                <tbody>
+                    <tr>
+                        <td>聞いて分かりません</td>
+                        <td><span class="zh">聽不懂</span><span class="pinyin">Tīng bù dǒng</span></td>
+                    </tr>
+                    <tr>
+                        <td>中国語話せません</td>
+                        <td><span class="zh">我不會說中文</span><span class="pinyin">Wǒ bù huì shuō Zhōngwén</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-rec">最強</span> 私は日本人です</td>
+                        <td><span class="zh">我是日本人</span><span class="pinyin">Wǒ shì Rìběnrén</span></td>
+                        <td><span class="note">親切にしてもらえる確率UP</span></td>
+                    </tr>
+                    <tr>
+                        <td>もう一度言って</td>
+                        <td><span class="zh">請再説一遍</span><span class="pinyin">Qǐng zài shuō yībiàn</span></td>
+                    </tr>
+                    <tr>
+                        <td>日本語メニューある？</td>
+                        <td><span class="zh">有日文菜單嗎？</span><span class="pinyin">Yǒu Rìwén càidān ma?</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <h3>💡 台湾の「あるある」注意点</h3>
+    <div class="tip-box">
+        <p><strong>🧾 レシートくじ (統一發票)</strong><br>
+        捨てないで！宝くじです。最高1000万台湾元が当たります。コンビニなどの募金箱に入れるのも◎。</p>
+        <p style="margin-top:10px;"><strong>🚇 MRT(地下鉄)は飲食厳禁</strong><br>
+        改札内ではガムや水も禁止です。見つかると高額な罰金があるので注意してください。</p>
+    </div>
+    <p style="margin-top:20px;">Safe Travels in Taiwan! 🇹🇼</p>
+</footer>
+
+</body>
+</html>

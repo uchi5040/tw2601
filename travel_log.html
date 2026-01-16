@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)file:///C:/Users/yuuch/OneDrive/Desktop/travel_log/travel_log.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台北旅行ログ 2026 全行程・完全版</title>
+    <link href="./travel_log_files/css2" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fcf9f2;
+            --text-color: #4a4a4d;
+            --main-green: #9dbf9d;
+            --accent-pink: #eeb8b8;
+            --accent-yellow: #fdf5e6;
+            --star-color: #ffb400;
+        }
+
+        body {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0; padding: 0; line-height: 1.8;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+
+        header { text-align: center; padding: 80px 0; background: url('https://www.transparenttextures.com/patterns/natural-paper.png'); }
+        h1 { font-size: 2.6rem; margin: 0; color: #5a7d5a; letter-spacing: 0.15em; }
+        .subtitle { font-family: 'Caveat', cursive; font-size: 1.8rem; color: var(--accent-pink); margin-top: 10px; }
+
+        .day-section { margin-bottom: 120px; }
+        .day-header {
+            display: flex; align-items: baseline;
+            border-bottom: 3px solid var(--main-green);
+            margin-bottom: 40px; padding-bottom: 10px;
+        }
+        .day-num { font-size: 2.4rem; font-weight: bold; color: var(--main-green); margin-right: 20px; font-family: 'Caveat', cursive; }
+        .day-date { font-size: 1.2rem; font-weight: bold; }
+
+        .item-card {
+            background: #fff; border-radius: 18px; padding: 25px;
+            margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            position: relative; border: 1px solid #f0efeb;
+        }
+        .time-tag { font-size: 0.85rem; color: #aaa; font-weight: bold; display: block; margin-bottom: 5px; }
+        .spot-name { font-size: 1.25rem; font-weight: bold; color: #333; }
+        .category-tag { font-size: 0.7rem; padding: 3px 12px; border-radius: 12px; margin-left: 10px; vertical-align: middle; font-weight: normal; }
+        .tag-food { background: #fff0f0; color: #d66; }
+        .tag-transport { background: #f0f7ff; color: #69c; }
+        .tag-activity { background: #f0fff0; color: #6a6; }
+        .tag-lodging { background: #fffaf0; color: #d94; }
+        .tag-money { background: #e0f2f1; color: #00796b; }
+        .tag-rest { background: #f3e5f5; color: #7b1fa2; }
+        .tag-incident { background: #ffebee; color: #c62828; }
+        .tag-health { background: #e8f5e9; color: #2e7d32; }
+        .tag-shopping { background: #fff3e0; color: #ef6c00; }
+        .tag-airport { background: #eceff1; color: #455a64; }
+
+        .price { font-size: 0.95rem; color: #888; margin: 5px 0; font-weight: bold; }
+        .stars { color: var(--star-color); font-size: 1.2rem; margin: 5px 0; letter-spacing: 2px; }
+        .stars-empty { color: #e0e0e0; }
+
+        .menu-box {
+            background: var(--accent-yellow); padding: 15px; border-radius: 12px;
+            margin: 15px 0; font-size: 0.9rem;
+        }
+        .menu-box ul { margin: 0; padding-left: 20px; }
+
+        .note { font-size: 0.95rem; border-top: 1px dashed #eee; padding-top: 15px; margin-top: 15px; color: #555; }
+
+        .photo-grid { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+        .photo-grid img {
+            width: 160px; height: 160px; object-fit: cover;
+            border: 5px solid #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
+
+        .blackboard {
+            background: #3e4a3e; color: #fff; padding: 30px;
+            border: 8px solid #8b5a2b; border-radius: 4px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15); margin-top: 50px;
+        }
+        .blackboard-title { text-align: center; border-bottom: 1px dashed #fff; margin-bottom: 20px; font-weight: bold; font-size: 1.2rem; }
+        .bb-row { display: flex; justify-content: space-between; margin: 10px 0; font-size: 0.95rem; }
+        .bb-total { border-top: 2px solid #fff; margin-top: 20px; padding-top: 15px; text-align: right; font-size: 1.3rem; font-weight: bold; }
+        .bb-note { font-size: 0.75rem; color: #ccc; text-align: right; margin-top: 5px; }
+
+        .receipt {
+            background: #fff; padding: 50px; border: 1px solid #ddd;
+            margin-top: 100px; box-shadow: 15px 15px 0 var(--accent-pink);
+            position: relative;
+        }
+        .receipt h2 { text-align: center; font-size: 1.8rem; margin-bottom: 30px; border-bottom: 4px double #333; }
+        .receipt-section { border-bottom: 1px solid #eee; padding: 15px 0; }
+        .receipt-row { display: flex; justify-content: space-between; margin: 10px 0; }
+        .receipt-total { border-top: 5px double #333; margin-top: 30px; padding-top: 20px; font-size: 1.6rem; font-weight: bold; text-align: right; }
+
+        footer { text-align: center; padding: 80px 0; color: #bbb; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>台北さんぽ 2026</h1>
+        <p class="subtitle">Travel Log / 2026.01.06 - 01.10</p>
+    </header>
+
+    <!-- Day 1 -->
+    <section class="day-section">
+        <div class="day-header">
+            <span class="day-num">Day 1</span>
+            <span class="day-date">2026.01.06 (月) / 出発と台北の夜</span>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">06:35</span>
+            <span class="spot-name">最寄り駅<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">3,160 JPY</div>
+            <p class="note">旅行開始。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">08:25</span>
+            <span class="spot-name">関西国際空港 T1 到着<span class="category-tag tag-transport">Transport</span></span>
+            <p class="note">早朝移動後に空港着。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">08:35 - 09:05</span>
+            <span class="spot-name">空港手続き<span class="category-tag tag-airport">Airport</span></span>
+            <p class="note">チェックイン完了、保安検査通過、出国審査完了。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">13:45</span>
+            <span class="spot-name">桃園国際空港 到着<span class="category-tag tag-transport">Transport</span></span>
+            <p class="note">到着後、入国審査は緑のカードを事前取得してスムーズに通過。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">-</span>
+            <span class="spot-name">eSIM設定・回線復旧<span class="category-tag tag-activity">Connectivity</span></span>
+            <p class="note">楽天モバイルはデータローミングON必須。設定に気づくまで心臓に悪い。同行者のe-simも関空でアクティベートしてからにしたらよかった。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">14:30</span>
+            <span class="spot-name">ATM引き出し（Wise）<span class="category-tag tag-money">Money</span></span>
+            <div class="price">(25,124 JPY / 5,000 TWD)</div>
+            <p class="note">台北銀行ATMで「日本語→クレカ→引き出し→登録口座」で操作可能。WISEが最もレート有利と信じて。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">14:40</span>
+            <span class="spot-name">悠遊卡チャージ<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">(800 TWD)</div>
+            <p class="note">機械は全額チャージの噂があり、窓口対応。「我要加值400」で通じる。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">14:58 - 15:35</span>
+            <span class="spot-name">空港線MRT (空港→台北駅)<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">320 TWD</div>
+            <p class="note">悠遊卡利用。T2が始発なのでT1からは座れない。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">15:40</span>
+            <span class="spot-name">台北駅 関北紅豆餅<span class="category-tag tag-food">Food</span></span>
+            <div class="price">60 TWD</div>
+            <div class="stars">★★★<span class="stars-empty">★★★</span> <small>(1.5)</small></div>
+            <div class="menu-box"><ul><li>紅豆餅（タロイモ）</li><li>紅豆餅（ごま）</li></ul></div>
+            <p class="note">素朴でおいしい。レシピはいいが焼き方はやや雑。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day1_01.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">16:04 - 16:07</span>
+            <span class="spot-name">台北駅 → 雙連<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">40 TWD</div>
+            <p class="note">MRT移動。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">16:20</span>
+            <span class="spot-name">鴨川旅館 チェックイン<span class="category-tag tag-lodging">Lodging</span></span>
+            <div class="price">22,234 JPY (4泊)</div>
+            <p class="note">部屋が広く、暖房・バスタブ・収納が充実していて拠点として非常に良い。部屋はアップグレードしてくれていた。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day1_03.jpg"><img src="./travel_log_files/day1_04.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">17:00</span>
+            <span class="spot-name">ホテル周辺 散歩<span class="category-tag tag-activity">Activity</span></span>
+            <p class="note">軽く街歩き。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">17:30</span>
+            <span class="spot-name">鶏家荘 本店<span class="category-tag tag-food">Food</span></span>
+            <div class="price">1,371 TWD</div>
+            <div class="stars"><span class="stars-empty">★★★★★★</span> <small>(0.0)</small></div>
+            <div class="menu-box"><ul><li>三味鶏 / 豆腐 / 茄子 / 鶏油飯 / プリン</li></ul></div>
+            <p class="note">味は一部良いが量が多くコスパ微妙。接客は良い。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day1_05.jpg"><img src="./travel_log_files/day1_06.jpg"><img src="./travel_log_files/day1_07.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">18:40</span>
+            <span class="spot-name">ホテルで仮眠<span class="category-tag tag-rest">Rest</span></span>
+            <p class="note">食べ過ぎてダウン。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">-</span>
+            <span class="spot-name">落とし物に気付く<span class="category-tag tag-incident">Incident</span></span>
+            <p class="note">ミャクミャクキーホルダー紛失していることに気付いた。軽いショック。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">19:50</span>
+            <span class="spot-name">寧夏夜市 方家鶏肉飯<span class="category-tag tag-food">Food</span></span>
+            <div class="price">50 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>鶏肉飯</li></ul></div>
+            <p class="note">鶏の旨味がしっかり。持ち直してきた。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day1_08.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">20:20</span>
+            <span class="spot-name">寧夏夜市 香酥地瓜球<span class="category-tag tag-food">Food</span></span>
+            <div class="price">35 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>地瓜球</li></ul></div>
+            <p class="note">小さい行列あるので常に揚げたて。小さめ。カリッとして止まらない。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day1_09.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">20:30</span>
+            <span class="spot-name">豆花荘<span class="category-tag tag-food">Food</span></span>
+            <div class="price">65 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>豆花（タロイモ団子＋小豆）</li></ul></div>
+            <p class="note">安定の美味しさ。多少は並ぶ。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day1_10.jpg"></div>
+        </div>
+
+        <div class="blackboard">
+            <div class="blackboard-title">Day 1 Summary</div>
+            <div class="bb-row"><span>食費実支出 (鶏家荘/夜市等)</span><span>1,581 TWD</span></div>
+            <div class="bb-row"><span>交通実支出 (MRT等)</span><span>360 TWD</span></div>
+            <div class="bb-row"><span>悠遊卡チャージ（参考）</span><span>(800 TWD)</span></div>
+            <div class="bb-row"><span>日本国内交通費</span><span>3,160 JPY</span></div>
+            <div class="bb-total">Consumption Total: 1,941 TWD + ¥3,160</div>
+            <div class="bb-note">※チャージ額(800)は実支出に含まず計算</div>
+        </div>
+    </section>
+
+    <!-- Day 2 -->
+    <section class="day-section">
+        <div class="day-header">
+            <span class="day-num">Day 2</span>
+            <span class="day-date">2026.01.07 (火) / 北投市場と美食めぐり</span>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">08:00</span>
+            <span class="spot-name">世界豆漿大王<span class="category-tag tag-food">Food</span></span>
+            <div class="price">95 TWD</div>
+            <div class="stars">★★★★★☆ <small>(2.5)</small></div>
+            <div class="menu-box"><ul><li>鹹豆漿 / 油條 / 切り干し大根ダンピン</li></ul></div>
+            <p class="note">ダンピンが特に美味。鹹豆漿は酸っぱめ。猫ちゃんがいる。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day2_01.jpg"><img src="./travel_log_files/day2_02.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">08:20</span>
+            <span class="spot-name">中安公園 健康器具<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★★☆☆ <small>(2.0)</small></div>
+            <p class="note">船の舵みたいな器具の使い方が分からない。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day2_03.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">09:00</span>
+            <span class="spot-name">香満園<span class="category-tag tag-food">Food</span></span>
+            <div class="price">60 TWD</div>
+            <div class="stars">★★★★☆☆ <small>(2.0)</small></div>
+            <div class="menu-box"><ul><li>魯肉飯×2</li></ul></div>
+            <p class="note">前回より脂が重く感じた。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day2_04.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">10:10</span>
+            <span class="spot-name">北投市場 散策<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★★☆☆ <small>(2.0)</small></div>
+            <p class="note">市場をぶらぶら。屋内は食材がいっぱい、屋外は活気がすごい。</p>
+            <div class="photo-grid"><img src="file:///C:/Users/yuuch/OneDrive/Desktop/travel_log/photos/day2_05.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">10:30</span>
+            <span class="spot-name">高記茶荘<span class="category-tag tag-food">Drink</span></span>
+            <div class="price">25 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>無憂茶</li></ul></div>
+            <p class="note">緑茶と烏龍茶のミックス。ちゃんとカップで提供される。めちゃうま。70%糖でもさっぱり。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day2_06.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">10:50</span>
+            <span class="spot-name">北投市場 屋台お焼き<span class="category-tag tag-food">Food</span></span>
+            <div class="price">35 TWD</div>
+            <div class="stars">★★★★☆☆ <small>(2.0)</small></div>
+            <div class="menu-box"><ul><li>さつまいもと紫芋のお焼き</li></ul></div>
+            <p class="note">芋以上でも芋以下でもない芋。素朴おいしい。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day2_07.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">11:05</span>
+            <span class="spot-name">北投エリア 長安公園<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★★☆☆ <small>(2.0)</small></div>
+            <p class="note">独自の使い方をするおじいさんがいた。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day2_08.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">11:00</span>
+            <span class="spot-name">水某小巻米粉<span class="category-tag tag-food">Food</span></span>
+            <div class="price">300 TWD</div>
+            <div class="stars">★★★<span class="stars-empty">★★★</span> <small>(1.5)</small></div>
+            <div class="menu-box"><ul><li>小巻米粉 / 小巻炒麵</li></ul></div>
+            <p class="note">台南の小巻米粉が美味しすぎた。そして麺いらないので次は小巻湯にしたい。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day2_09.jpg"><img src="./travel_log_files/day2_10.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">-</span>
+            <span class="spot-name">高記茶荘（持ち帰り）<span class="category-tag tag-food">Drink</span></span>
+            <div class="price">85 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>無憂茶 / 百香果緑茶</li></ul></div>
+            <p class="note">持ち帰って飲む。バリ美味しい。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">13:45</span>
+            <span class="spot-name">榕美樹館<span class="category-tag tag-food">Food</span></span>
+            <div class="price">180 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>豆花×2</li></ul></div>
+            <p class="note">豆花荘より完成度高い。値段高いだけある。店内も静かで上品。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day2_11.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">14:10</span>
+            <span class="spot-name">YouBike移動：榕美樹館 → 龍山寺<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">40 TWD</div>
+            <div class="stars">★★★★☆☆ <small>(2.0)</small></div>
+            <p class="note">淡水沿いのサイクリングロードが最高。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">14:40</span>
+            <span class="spot-name">龍山寺 参拝<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★★★☆ <small>(2.5)</small></div>
+            <p class="note">落ち着いた時間。独特のおみくじ。「あなたは働き蜂、春は終わり花はもうないことに気づけ」</p>
+            <div class="photo-grid"><img src="./travel_log_files/day2_12.jpg"><img src="./travel_log_files/day2_13.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">15:30</span>
+            <span class="spot-name">小王煮瓜<span class="category-tag tag-food">Food</span></span>
+            <div class="price">160 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>魯肉飯（小）×2 / 清湯瓜仔肉</li></ul></div>
+            <p class="note">今回いちばんの魯肉飯（暫定）。しょっぱめだから夏ならさらに染みる。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day2_14.jpg"><img src="./travel_log_files/day2_15.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">15:45</span>
+            <span class="spot-name">西門紅楼 16工房<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★<span class="stars-empty">★★★</span> <small>(1.5)</small></div>
+            <p class="note">かわいい雑貨多め。買えばよかった。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day2_16.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">16:45</span>
+            <span class="spot-name">梁山泊小籠湯包<span class="category-tag tag-food">Food</span></span>
+            <div class="price">125 TWD</div>
+            <div class="stars">★★★<span class="stars-empty">★★★</span> <small>(1.5)</small></div>
+            <div class="menu-box"><ul><li>小籠包（7個）</li></ul></div>
+            <p class="note">小籠包のサイズに対して器とレンゲが小さいミスマッチが惜しい。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day2_17.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">17:30</span>
+            <span class="spot-name">天天利美食坊<span class="category-tag tag-food">Food</span></span>
+            <div class="price">85 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>魯肉飯 / 魯肉飯（卵添え）</li></ul></div>
+            <p class="note">満腹でも美味しい。卵絶品。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day2_18.jpg"><img src="./travel_log_files/day2_19.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">18:10</span>
+            <span class="spot-name">YouBike移動：西門 → ホテル<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">20 TWD</div>
+            <div class="stars">★★★★★☆ <small>(2.5)</small></div>
+            <p class="note">帰宅ラッシュでバイクにガンガン追い抜かれる。</p>
+        </div>
+
+        <div class="blackboard">
+            <div class="blackboard-title">Day 2 Summary</div>
+            <div class="bb-row"><span>食費・飲料費合計</span><span>1,150 TWD</span></div>
+            <div class="bb-row"><span>交通実支出 (YouBike等)</span><span>60 TWD</span></div>
+            <div class="bb-total">Consumption Total: 1,210 TWD</div>
+        </div>
+    </section>
+
+    <!-- Day 3 -->
+    <section class="day-section">
+        <div class="day-header">
+            <span class="day-num">Day 3</span>
+            <span class="day-date">2026.01.08 (木) / 豆漿ハシゴと迪化街</span>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">05:00</span>
+            <span class="spot-name">起床<span class="category-tag tag-rest">Rest</span></span>
+            <p class="note">Day3開始。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">06:05</span>
+            <span class="spot-name">ホテル出発<span class="category-tag tag-activity">Activity</span></span>
+            <p class="note">06:00すぎに出発。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">05:55 - 06:12</span>
+            <span class="spot-name">YouBike移動：ホテル → 阜杭豆漿<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">40 TWD</div>
+            <div class="stars">★★★★☆☆ <small>(2.0)</small></div>
+            <p class="note">阜杭豆漿へ向かう。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">06:20</span>
+            <span class="spot-name">阜杭豆漿<span class="category-tag tag-food">Food</span></span>
+            <div class="price">110 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>鹹豆漿 / 甜豆漿 / 油條</li></ul></div>
+            <p class="note">行列ゼロ。甜豆漿は優しい。鹹豆漿は酸っぱくなく食べやすい。油條は単体だと油っぽいが豆漿と相性良い。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day3_01.jpg"><img src="./travel_log_files/day3_02.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">07:00</span>
+            <span class="spot-name">中正紀念堂 見学<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★<span class="stars-empty">★★★</span> <small>(1.5)</small></div>
+            <p class="note">太極拳をしているご老人の集団がいた。少し離れてバレないように真似してみたが、意味が分からなさすぎてすぐ断念。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day3_03.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">07:30</span>
+            <span class="spot-name">鼎元豆漿<span class="category-tag tag-food">Food</span></span>
+            <div class="price">145 TWD</div>
+            <div class="stars">★★★★★☆ <small>(2.5)</small></div>
+            <div class="menu-box"><ul><li>小籠包 / 豆漿</li></ul></div>
+            <p class="note">待ちなし。注文は基本中国語だがカタコト日本語で対応。小籠包は蒸したてを蒸籠で提供、針生姜取り放題。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day3_04.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">08:25</span>
+            <span class="spot-name">YouBike移動：錦州女中 → 台北101<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">80 TWD</div>
+            <div class="stars">★<span class="stars-empty">★★★★★</span> <small>(0.5)</small></div>
+            <p class="note">ピクミンブルーム期間限定イベント目的。道は走りやすいが信号多いし空気も良くない。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day3_05.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">09:10</span>
+            <span class="spot-name">国父紀念館 トイレ休憩<span class="category-tag tag-activity">Activity</span></span>
+            <p class="note">イベント自体は特に何もなく、トイレを借りた。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">09:48 - 10:33</span>
+            <span class="spot-name">YouBike移動：台北101 → 鴨川旅館<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">40 TWD</div>
+            <div class="stars">★<span class="stars-empty">★★★★★</span> <small>(0.5)</small></div>
+            <p class="note">信号に引っかかりまくって45分。YouBikeを利用するのはGoogleMAPで表示15分以内が目安。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">11:00</span>
+            <span class="spot-name">休憩：ホテル<span class="category-tag tag-rest">Rest</span></span>
+            <p class="note">11:00過ぎまで宿で休憩。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">11:20</span>
+            <span class="spot-name">MRT移動：雙連 → 中正紀念堂<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">40 TWD</div>
+            <p class="note">金峰魯肉飯へ向かう。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">12:00</span>
+            <span class="spot-name">金峰魯肉飯<span class="category-tag tag-food">Food</span></span>
+            <div class="price">110 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>滷肉飯×2 / 燙青菜</li></ul></div>
+            <p class="note">椎茸入りでしつこくないのに旨味が濃い滷肉飯。青菜のニンニクソースも美味。貫禄の★3。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day3_06.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">12:30</span>
+            <span class="spot-name">永康街 雑貨散策<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★★★☆ <small>(2.5)</small></div>
+            <p class="note">徒歩で永康街へ。急に若者が多い。持ち替えドリンク用カップホルダーを探す。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">13:00</span>
+            <span class="spot-name">永康公園 休憩<span class="category-tag tag-rest">Rest</span></span>
+            <div class="stars">★★★★★☆ <small>(2.5)</small></div>
+            <p class="note">疲れと満腹感のため休息。日本からの修学旅行生らしき集団が鼎泰豊のテイクアウトを公園で食べていてなんだか可哀想な雰囲気…。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">13:45</span>
+            <span class="spot-name">MRT移動：東門 → 大橋頭<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">50 TWD</div>
+            <p class="note">予定していたガチョウは腹具合的に断念。MRTで大橋頭へ。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">14:10</span>
+            <span class="spot-name">迪化街 街歩き<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★<span class="stars-empty">★★★</span> <small>(1.5)</small></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">14:30</span>
+            <span class="spot-name">妙口四神湯 肉包<span class="category-tag tag-food">Food</span></span>
+            <div class="price">25 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>肉包</li></ul></div>
+            <p class="note">ふわふわもちもちの皮。中身の肉は噛み応え・食べ応えあり。雰囲気も相まって染みる。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day3_07.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">15:00</span>
+            <span class="spot-name">永昌傳統豆花店 杏仁茶<span class="category-tag tag-food">Drink</span></span>
+            <div class="price">70 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>杏仁茶×2</li></ul></div>
+            <p class="note">優しい甘さと温かさで身体の中からあたたまる。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day3_08.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">15:20</span>
+            <span class="spot-name">迪化街 雑貨散策<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★★☆☆ <small>(2.0)</small></div>
+            <p class="note">高建桶店やinBloomを見た。ゾロさんの奇跡の国台湾はチラ見のみ。入らなかったが悔いはなし。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">15:40</span>
+            <span class="spot-name">佳興魚丸店<span class="category-tag tag-food">Food</span></span>
+            <div class="price">70 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>綜合魚丸湯</li></ul></div>
+            <p class="note">魚丸は中に豚肉入り。魚の優しさと旨味が良い。しいたけ団子は弾力抜群。スープが優しく無限に飲める。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day3_09.jpg"><img src="./travel_log_files/day3_10.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">16:10</span>
+            <span class="spot-name">YouBike移動：迪化街 → 鴨川旅館<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">20 TWD</div>
+            <p class="note">疲労感と喉のイガイガを感じたため帰宿。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">16:30 - 18:00</span>
+            <span class="spot-name">休憩：仮眠・休息<span class="category-tag tag-rest">Rest</span></span>
+            <p class="note">葛根湯、トローチ、ロキソニンで回復対応。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">18:30</span>
+            <span class="spot-name">嘟嘟水餃 Dodo's Dumpling<span class="category-tag tag-food">Food</span></span>
+            <div class="price">80 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>韭菜水餃×10</li></ul></div>
+            <p class="note">黒板で個数指定のみ。微辣指定でタレが絶妙。ニラぎっしりだが臭みなし。日本人と分かると優しく対応。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day3_11.jpg"><img src="./travel_log_files/day3_12.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">19:15</span>
+            <span class="spot-name">双連圓仔湯<span class="category-tag tag-food">Food</span></span>
+            <div class="price">110 TWD</div>
+            <div class="stars">★★★<span class="stars-empty">★★★</span> <small>(1.5)</small></div>
+            <div class="menu-box"><ul><li>燒麻糬×2</li></ul></div>
+            <p class="note">揚げた柔らかい餅にピーナッツ・砂糖・胡麻。時間が経っても柔らかいのが不思議。美味しいがコスパは謎。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day3_13.jpg"></div>
+        </div>
+
+        <div class="blackboard">
+            <div class="blackboard-title">Day 3 Summary</div>
+            <div class="bb-row"><span>食費・飲料費合計</span><span>720 TWD</span></div>
+            <div class="bb-row"><span>交通実支出合計</span><span>270 TWD</span></div>
+            <div class="bb-total">Consumption Total: 990 TWD</div>
+        </div>
+    </section>
+
+    <!-- Day 4 -->
+    <section class="day-section">
+        <div class="day-header">
+            <span class="day-num">Day 4</span>
+            <span class="day-date">2026.01.09 (金) / 公園の休日とガチョウ</span>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">morning</span>
+            <span class="spot-name">体調メモ<span class="category-tag tag-health">Health</span></span>
+            <p class="note">喉のイガイガが治らない。扁桃腺が腫れそうな雰囲気はあるが、インフルではなさそうでそれは安心。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">08:00</span>
+            <span class="spot-name">香満園（朝）<span class="category-tag tag-food">Food</span></span>
+            <div class="price">170 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>滷肉飯×2 / 魚丸湯 / 燙青菜 / 滷豆腐 / 滷蛋</li></ul></div>
+            <p class="note">先日より脂っこすぎず、滷肉飯がさらに美味しい。スープは魚丸がブリブリでセロリも効いて飲みやすい。トータルで★3。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day4_01.jpg"><img src="./travel_log_files/day4_02.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">09:00</span>
+            <span class="spot-name">世界豆漿大王 熱豆漿<span class="category-tag tag-food">Drink</span></span>
+            <div class="price">15 TWD</div>
+            <div class="stars">★★★★☆☆ <small>(2.0)</small></div>
+            <div class="menu-box"><ul><li>熱豆漿</li></ul></div>
+            <p class="note">めちゃくちゃ大豆の味。とにかく大豆の味。外帯デビューできたのが個人的に嬉しい。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day4_03.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">09:30</span>
+            <span class="spot-name">休憩：仮眠<span class="category-tag tag-rest">Rest</span></span>
+            <p class="note">体力温存を図る。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">11:30</span>
+            <span class="spot-name">嘟嘟水餃（昼）<span class="category-tag tag-food">Food</span></span>
+            <div class="price">80 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>韭菜水餃×10</li></ul></div>
+            <p class="note">Googleマップどおり11:30にオープン。皮が分厚すぎず薄すぎず、もちもちで茹で加減も絶妙。連日の★3。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day4_04.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">12:00</span>
+            <span class="spot-name">宿周辺 散歩・写真<span class="category-tag tag-activity">Activity</span></span>
+            <p class="note">餃子を食べて、散歩がてら小室哲哉の前で写真を撮る。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day4_05.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">12:30</span>
+            <span class="spot-name">50嵐 四季春青茶<span class="category-tag tag-food">Drink</span></span>
+            <div class="price">35 TWD</div>
+            <div class="stars">★★★★☆☆ <small>(2.0)</small></div>
+            <div class="menu-box"><ul><li>四季春青茶（中）少糖</li></ul></div>
+            <p class="note">爽やか。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">12:45</span>
+            <span class="spot-name">微笑地瓜球<span class="category-tag tag-food">Food</span></span>
+            <div class="price">50 TWD</div>
+            <div class="stars">★★★★☆☆ <small>(2.0)</small></div>
+            <div class="menu-box"><ul><li>地瓜球</li></ul></div>
+            <p class="note">作り置きではあったが、初日とは違う大きめふわもちでしっかりさつまいもの味がした。ただ、さすがに初日のには敵わない。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">13:05</span>
+            <span class="spot-name">榕美樹館 豆花<span class="category-tag tag-food">Food</span></span>
+            <div class="price">97 TWD</div>
+            <div class="stars">★★★★★☆ <small>(2.5)</small></div>
+            <div class="menu-box"><ul><li>豆花（仙草＋芋圓＋地瓜圓）</li></ul></div>
+            <p class="note">持ち帰りスプーンは2NTDするので注意。安定の美味しさだが、店の雰囲気込みの採点になるので外帯だと★2.5。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">13:20</span>
+            <span class="spot-name">建成公園 外帯ランチ<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <p class="note">外帯したものを建成公園で食べる。久しぶりの晴れ。黄昏れる柴犬。バスケおじ。TikTokガール。ムキムキ徘徊ニキ。いいね、こういうゆるやかな時間。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day4_06.jpg"><img src="./travel_log_files/day4_07.jpg"><img src="./travel_log_files/day4_08.jpg"><img src="./travel_log_files/day4_09.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">14:00</span>
+            <span class="spot-name">散歩：西門エリアへ<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★★☆☆ <small>(2.0)</small></div>
+            <p class="note">西門エリアを目指して散歩。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">14:10</span>
+            <span class="spot-name">寧夏夜市（昼間）<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★<span class="stars-empty">★★★</span> <small>(1.5)</small></div>
+            <p class="note">寧夏夜市の昼間の屋台を目撃。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day4_10.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">14:20</span>
+            <span class="spot-name">福田一方 鳳梨酥<span class="category-tag tag-food">Food</span></span>
+            <div class="price">30 TWD</div>
+            <div class="stars">★★★<span class="stars-empty">★★★</span> <small>(1.5)</small></div>
+            <div class="menu-box"><ul><li>鳳梨酥</li></ul></div>
+            <p class="note">パイナップルケーキ。全然水分持っていかれない。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day4_11.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">14:40</span>
+            <span class="spot-name">台湾日和（西門） 下見<span class="category-tag tag-shopping">Shopping</span></span>
+            <div class="stars">★★★<span class="stars-empty">★★★</span> <small>(1.5)</small></div>
+            <p class="note">雑貨屋を覗くが何も買わず。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">14:55</span>
+            <span class="spot-name">來好 Lai Hao 西門店<span class="category-tag tag-shopping">Shopping</span></span>
+            <div class="price">310 TWD</div>
+            <div class="stars">★★★★☆☆ <small>(2.0)</small></div>
+            <div class="menu-box"><ul><li>小籠包ピンバッジ / 地瓜球巾着</li></ul></div>
+            <p class="note">この旅で気になっていた2点を購入。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day4_12.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">15:05</span>
+            <span class="spot-name">西門紅楼 再訪<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★<span class="stars-empty">★★★</span> <small>(1.5)</small></div>
+            <p class="note">改めて見るとそこまで欲しくもなくなっていて、納得して買わずに後にした。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day4_13.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">15:10</span>
+            <span class="spot-name">MRT移動：西門 → 中山<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">40 TWD</div>
+            <p class="note">中山地下街を歩いて帰ろうとした。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">15:20</span>
+            <span class="spot-name">中山エリア 予約戦<span class="category-tag tag-activity">Activity</span></span>
+            <p class="note">CHIIKAWA SHOP in TAIPEIの巨大広告を発見。満員だったが粘って16:20入場のキャンセル枠を拾えた。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day4_14.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">15:30</span>
+            <span class="spot-name">徒歩移動：中山エリア → 鴨川旅館<span class="category-tag tag-transport">Transport</span></span>
+            <p class="note">入場まで時間があるので一旦宿へ。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">16:10</span>
+            <span class="spot-name">徒歩移動：鴨川旅館 → 中山エリア<span class="category-tag tag-transport">Transport</span></span>
+            <p class="note">再び中山へ。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">16:20</span>
+            <span class="spot-name">CHIIKAWA SHOP in TAIPEI<span class="category-tag tag-shopping">Shopping</span></span>
+            <div class="price">245 TWD</div>
+            <div class="stars">★★<span class="stars-empty">★★★★</span> <small>(1.0)</small></div>
+            <div class="menu-box"><ul><li>ステッカー / ショップバッグ</li></ul></div>
+            <p class="note">日本のグッズがそのままで拍子抜け。それでも手ぶらでは出られず購入。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day4_15.jpg"><img src="./travel_log_files/day4_16.jpg"><img src="./travel_log_files/day4_17.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">16:40</span>
+            <span class="spot-name">徒歩移動：中山エリア → 鴨川旅館<span class="category-tag tag-transport">Transport</span></span>
+            <p class="note">荷物を置きに宿へ。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">17:30</span>
+            <span class="spot-name">阿城鵝肉 吉林二店<span class="category-tag tag-food">Food</span></span>
+            <div class="price">420 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>煙燻鵝肉（胸肉）小份 / 白飯 / 台灣啤酒（瓶）</li></ul></div>
+            <p class="note">ガチョウは臭みもなくスモークもきつすぎず、タレも含めて非常に美味しい。文句なし★3。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day4_18.jpg"><img src="./travel_log_files/day4_19.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">19:00</span>
+            <span class="spot-name">セブンイレブン ビール調達<span class="category-tag tag-food">Drink</span></span>
+            <div class="price">37 TWD</div>
+            <div class="stars">★★★★★☆ <small>(2.5)</small></div>
+            <p class="note">嘟嘟水餃用に事前調達。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">19:10</span>
+            <span class="spot-name">嘟嘟水餃（夜・3回目）<span class="category-tag tag-food">Food</span></span>
+            <div class="price">80 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>韭菜水餃 ×10</li></ul></div>
+            <p class="note">まさかの3回目。覚えられているのか…？台湾ビールと合わせて最強の夜。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day4_20.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">night</span>
+            <span class="spot-name">体調メモ<span class="category-tag tag-health">Health</span></span>
+            <p class="note">夕食前にロキソニンを再度服用。ビール後は調子が良い。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">night</span>
+            <span class="spot-name">翌日の方針<span class="category-tag tag-activity">Planning</span></span>
+            <p class="note">早めに寝る。明日は起きられたら豆漿屋チャレンジ。現地通貨使い切りチャレンジも行いたい。</p>
+        </div>
+
+        <div class="blackboard">
+            <div class="blackboard-title">Day 4 Summary</div>
+            <div class="bb-row"><span>食費・飲料費合計</span><span>1,014 TWD</span></div>
+            <div class="bb-row"><span>買い物合計</span><span>555 TWD</span></div>
+            <div class="bb-row"><span>交通実支出合計</span><span>40 TWD</span></div>
+            <div class="bb-total">Consumption Total: 1,609 TWD</div>
+        </div>
+    </section>
+
+    <!-- Day 5 -->
+    <section class="day-section">
+        <div class="day-header">
+            <span class="day-num">Day 5</span>
+            <span class="day-date">2026.01.10 (土) / 名残惜しい最終日</span>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">05:00</span>
+            <span class="spot-name">朝の判断<span class="category-tag tag-activity">Planning</span></span>
+            <p class="note">遠くの阜杭より近くの世界。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">09:00</span>
+            <span class="spot-name">世界豆漿大王<span class="category-tag tag-food">Food</span></span>
+            <div class="price">200 TWD</div>
+            <div class="stars">★★★★★☆ <small>(2.5)</small></div>
+            <div class="menu-box"><ul><li>小籠包 / 蘿蔔乾蛋餅 / 豆漿 / 飯糰</li></ul></div>
+            <p class="note">満席でけっこう並んでいた。なぜか日本人がめっちゃ多い。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day5_01.jpg"><img src="./travel_log_files/day5_02.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">after 09:00</span>
+            <span class="spot-name">世界豆漿大王 打包<span class="category-tag tag-food">Food</span></span>
+            <p class="note">おにぎりは打包にする。現金消費のため、お茶を買う計画に切り替え。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">09:30</span>
+            <span class="spot-name">林森公園 待機ランチ<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★★★☆ <small>(2.5)</small></div>
+            <p class="note">CAOLY TEA 茗窖茶荘 中山一店の10:00オープンを待つため、林森公園で打包したおにぎりを食べながら待機。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">10:00</span>
+            <span class="spot-name">CAOLY TEA 茗窖茶荘 中山一店<span class="category-tag tag-activity">Activity</span></span>
+            <p class="note">Googleマップでは10:00オープンだが、時間になっても店が開かない。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">after 10:00</span>
+            <span class="spot-name">瑞泰茶荘<span class="category-tag tag-shopping">Shopping</span></span>
+            <div class="price">800 TWD</div>
+            <div class="stars">★★★★★☆ <small>(2.5)</small></div>
+            <div class="menu-box"><ul><li>凍頂烏龍茶（150g）</li></ul></div>
+            <p class="note">店主の鮮やかな販売トークに魅了され。相場より相当高いが経験込みで良い時間だったと思う。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">12:00</span>
+            <span class="spot-name">鴨川旅館 チェックアウト<span class="category-tag tag-lodging">Lodging</span></span>
+            <div class="stars">★★★★★☆ <small>(2.5)</small></div>
+            <p class="note">水圧が低く、防音が弱い点がマイナス。一方で圧倒的な安さ、部屋の広さ、グルメへのアクセスの良さが大きなメリット。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">after 12:00</span>
+            <span class="spot-name">中山地下街移動（徒歩）<span class="category-tag tag-transport">Transport</span></span>
+            <p class="note">台北駅へ向かう。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">after 12:00</span>
+            <span class="spot-name">残金確認<span class="category-tag tag-money">Money</span></span>
+            <p class="note">この時点で現金残高は271NTD。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">after 12:00</span>
+            <span class="spot-name">現金使い切りチャレンジ<span class="category-tag tag-activity">Planning</span></span>
+            <p class="note">台北駅→空港は空港MRTで移動予定。ギリギリプランと検討。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">12:00</span>
+            <span class="spot-name">正豪季水餃専売店（忠孝西路店）<span class="category-tag tag-food">Food</span></span>
+            <div class="price">100 TWD</div>
+            <div class="stars">★★★★★★ <small>(3.0)</small></div>
+            <div class="menu-box"><ul><li>蝦仁水餃（海老餃子）10個</li></ul></div>
+            <p class="note">海老はブリブリで大ぶり。一口では食べられないサイズと弾力。タレもピリ辛で、最後の食事にちょうど良い。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day5_03.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">12:30</span>
+            <span class="spot-name">空港MRT移動 (精算含)<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">320 TWD</div>
+            <p class="note">空港線改札付近の悠遊カードチャージ機がコイン非対応で誤算。係員対応で155NTD/人を精算し、ギリギリセーフ。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">13:56</span>
+            <span class="spot-name">桃園空港 チェックイン・出国<span class="category-tag tag-airport">Airport</span></span>
+            <p class="note">帰国便はエアアジア。預け入れ荷物なしの場合、カウンター手続き不要。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">13:56</span>
+            <span class="spot-name">桃園空港 出国手続き<span class="category-tag tag-airport">Airport</span></span>
+            <p class="note">保安検査で多少並んだが、15分程度で通過。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">after 14:00</span>
+            <span class="spot-name">空港無料ラウンジ<span class="category-tag tag-activity">Activity</span></span>
+            <div class="stars">★★★<span class="stars-empty">★★★</span> <small>(1.5)</small></div>
+            <p class="note">出国エリア内の無料ラウンジを利用。薄暗く、ソファがあり、暖かく静か。充電設備もあり非常に快適。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day5_04.jpg"><img src="./travel_log_files/day5_05.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">inflight</span>
+            <span class="spot-name">AirAsia 機内食<span class="category-tag tag-food">Food</span></span>
+            <div class="stars">★★★<span class="stars-empty">★★★</span> <small>(1.5)</small></div>
+            <div class="menu-box"><ul><li>Pak Nasser’s Nasi Lemak / Kofta Pilaf</li></ul></div>
+            <p class="note">ナシレマはココナッツで炊いたご飯が南国感あり美味しい。※金額は固定費側で計上済。</p>
+            <div class="photo-grid"><img src="./travel_log_files/day5_06.jpg"><img src="./travel_log_files/day5_07.jpg"></div>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">18:50</span>
+            <span class="spot-name">関空着陸<span class="category-tag tag-transport">Airport</span></span>
+            <p class="note">定刻より40分ほど早く関空に到着。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">evening</span>
+            <span class="spot-name">国内移動：関空 → 自宅<span class="category-tag tag-transport">Transport</span></span>
+            <div class="price">3,160 JPY</div>
+            <p class="note">南海急行で難波へ。先頭車両は激混みだったが、最後尾では座れた。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">21:30</span>
+            <span class="spot-name">帰宅<span class="category-tag tag-activity">Activity</span></span>
+            <p class="note">21:30ごろ帰宅。旅行中はあまり寝付けなかったが、帰宅後は爆睡。</p>
+        </div>
+
+        <div class="item-card">
+            <span class="time-tag">night</span>
+            <span class="spot-name">残金確定<span class="category-tag tag-money">Money</span></span>
+            <p class="note">現金残高：171NTD / 悠遊カード残高：0NTD</p>
+        </div>
+
+        <div class="blackboard">
+            <div class="blackboard-title">Day 5 Summary</div>
+            <div class="bb-row"><span>食費実支出合計</span><span>300 TWD</span></div>
+            <div class="bb-row"><span>買い物合計 (茶葉)</span><span>800 TWD</span></div>
+            <div class="bb-row"><span>交通実支出合計</span><span>320 TWD</span></div>
+            <div class="bb-row"><span>日本国内交通費</span><span>3,160 JPY</span></div>
+            <div class="bb-total">Consumption Total: 1,420 TWD + ¥3,160</div>
+        </div>
+    </section>
+
+    <!-- Final Receipt -->
+    <section class="receipt">
+        <h2>Grand Total Receipt</h2>
+        
+        <div class="receipt-section">
+            <p style="font-size: 0.8rem; font-weight:bold; color: #888;">FIXED COSTS (事前決済分)</p>
+            <div class="receipt-row"><span>往復航空券 (Tigerair/AirAsia)</span><span>¥85,408</span></div>
+            <div class="receipt-row"><span>宿泊費 (4泊)</span><span>¥22,234</span></div>
+            <div class="receipt-row"><span>国内交通費 (往復)</span><span>¥6,320</span></div>
+            <div class="receipt-row"><span>保険・eSIM</span><span>¥2,472</span></div>
+        </div>
+
+        <div class="receipt-section">
+            <p style="font-size: 0.8rem; font-weight:bold; color: #888;">VARIABLE COSTS (現地消費分 1TWD≈5.02円)</p>
+            <div class="receipt-row"><span>Day 1 実消費 (1,941 TWD)</span><span>¥9,744</span></div>
+            <div class="receipt-row"><span>Day 2 実消費 (1,210 TWD)</span><span>¥6,074</span></div>
+            <div class="receipt-row"><span>Day 3 実消費 (990 TWD)</span><span>¥4,970</span></div>
+            <div class="receipt-row"><span>Day 4 実消費 (1,609 TWD)</span><span>¥8,077</span></div>
+            <div class="receipt-row"><span>Day 5 実消費 (1,420 TWD)</span><span>¥7,128</span></div>
+        </div>
+
+        <div class="receipt-total">
+            <div class="receipt-row">
+                <span>TOTAL EXPENDITURE</span>
+                <span>¥152,427</span>
+            </div>
+        </div>
+        <p style="text-align: right; font-size: 0.75rem; color: #999; margin-top: 10px;">
+            ※現地消費額は、チャージ行為ではなく実際の利用額で算出しています
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2026 Taipei Travel Scrapbook. Edited with Precision.</p>
+    </footer>
+</div>
+
+
+</body></html>
